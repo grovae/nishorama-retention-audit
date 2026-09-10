@@ -82,6 +82,14 @@ p{margin:0}
 .strip{display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border-1); background:var(--surface)}
 .strip .cell{padding:20px 22px; border-left:1px solid var(--border-1); display:flex; flex-direction:column; gap:7px}
 .strip .cell:first-child{border-left:0}
+.strip.three{grid-template-columns:repeat(3,1fr)}
+.cadence{display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding-top:14px; border-top:1px solid var(--border-1); margin-top:2px}
+.step-pill{
+  display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border:1px solid var(--border-2);
+  border-radius:2px; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--ink-2);
+}
+.step-pill.now{background:var(--green-50); border-color:var(--tint-border-green); color:var(--accent)}
+.arrow{font-family:var(--font-mono); color:var(--ink-3)}
 .v{font-size:30px; font-weight:600; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
 .v.hero-v{color:var(--accent)}
 .sub{font-size:13px; color:var(--ink-2); line-height:1.4}
@@ -450,6 +458,39 @@ footer .mark i{background:var(--green-400)}
         </div>
       </div>
 
+      <!-- ---- list status IN ---- -->
+      <div class="sec-head" style="gap:8px; margin-top:8px">
+        <span class="label">List status · India</span>
+        <h3 style="font-size:20px">You can already reach 153,560 people. You are messaging none of them.</h3>
+      </div>
+      <div class="strip three">
+        <div class="cell">
+          <span class="v num">90,930</span>
+          <span class="label">Total customers</span>
+          <span class="sub">Have bought at least once.</span>
+        </div>
+        <div class="cell">
+          <span class="v hero-v num">153,560</span>
+          <span class="label">Reachable profiles</span>
+          <span class="sub">Owned audience, contactable today.</span>
+        </div>
+        <div class="cell">
+          <span class="v num">~62,630</span>
+          <span class="label">Profiles yet to purchase</span>
+          <span class="sub">Roughly 41% of the list. A prospect pool, not a retention one.</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>Campaign cadence</h3><span class="label">Sending plan</span></div>
+        <div class="cadence">
+          <span class="step-pill now">Start · 2 per week</span>
+          <span class="arrow">→</span>
+          <span class="step-pill">Ramp · 3–4 per week</span>
+        </div>
+        <p class="sub">Open at two sends a week while deliverability and sending reputation establish, then move to three or four. A list this size supports that cadence comfortably provided sends are segmented rather than blasted to the full file.</p>
+        <p class="sub">The 41% who have never bought should not receive the same calendar as the 90,930 who have. Two tracks: prospect conversion for the non-buyers, cross-sell and replenishment for the buyers.</p>
+      </div>
+
       <div class="sec-head" style="gap:8px">
         <span class="label">Biggest unlocks · India</span>
         <h3 style="font-size:20px">Build order</h3>
@@ -492,6 +533,39 @@ footer .mark i{background:var(--green-400)}
           <p>India can lead with cross-sell because repeat intent already exists inside 60 days. The US has to <strong>manufacture</strong> the second purchase with a deliberate post-purchase program before cross-sell has anything to work with.</p>
           <p>Direct mail replaces WhatsApp as the high-attention channel. It is slower and costlier per touch, so it is reserved for first-time buyers and high-value segments, not the whole file.</p>
         </div>
+      </div>
+
+      <!-- ---- list status US ---- -->
+      <div class="sec-head" style="gap:8px; margin-top:8px">
+        <span class="label">List status · US</span>
+        <h3 style="font-size:20px">A small list, and two thirds of it has never bought.</h3>
+      </div>
+      <div class="strip three">
+        <div class="cell">
+          <span class="v num">2,724</span>
+          <span class="label">Reachable customers</span>
+          <span class="sub">Have bought at least once.</span>
+        </div>
+        <div class="cell">
+          <span class="v hero-v num">8,565</span>
+          <span class="label">Reachable profiles</span>
+          <span class="sub">1/18th the size of the India list.</span>
+        </div>
+        <div class="cell">
+          <span class="v num">~5,841</span>
+          <span class="label">Profiles yet to purchase</span>
+          <span class="sub">Roughly 68% of the list. More than double India's share.</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>Campaign cadence</h3><span class="label">Sending plan</span></div>
+        <div class="cadence">
+          <span class="step-pill now">Minimum · 2 per week</span>
+          <span class="arrow">→</span>
+          <span class="step-pill">Hold until list growth supports more</span>
+        </div>
+        <p class="sub">Two sends a week from day one. The list is too small to ramp harder without fatiguing it, and too small to segment into many tracks — so the calendar stays simple until lead capture starts adding volume.</p>
+        <p class="sub">With 68% of the file yet to place an order, the US campaign calendar is a <strong>prospect conversion program first and a retention program second</strong>. That is the inverse of India, and it is why the popup matters more here than anywhere else in the account.</p>
       </div>
 
       <div class="sec-head" style="gap:8px">
@@ -608,6 +682,8 @@ footer .mark i{background:var(--green-400)}
           <li>Welcome flow: 130,000 sessions in the last 30 days, of which 100,000 assumed new visitors, of which 50% stay long enough to see the popup.</li>
           <li>Welcome placed-order rate held at a conservative 3%. Published benchmark median across ecommerce brands is 4.37%, with a wide spread.</li>
           <li>Flows only. Campaign revenue is excluded from every figure on this page.</li>
+          <li>Profiles yet to purchase is derived: reachable profiles minus customers, per market. It assumes the customer count sits inside the reachable pool, so treat it as an approximate size, not an exact segment.</li>
+          <li>The cross-sell map uses illustrative sample data on Nisharama's real categories, to show the shape of the analysis. It is replaced with actual purchase-path data once Shopify is connected.</li>
         </ul>
       </div>
     </details>

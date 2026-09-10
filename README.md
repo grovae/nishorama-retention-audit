@@ -1,5 +1,5 @@
-# Nisharama retention audit
+# Nishorama retention audit
 
 Prepared by Grovae, September 2026.
 
-Live: https://grovae.github.io/nisharama-retention-audit/
+Live: https://grovae.github.io/nishorama-retention-audit/

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nishorama · Retention proposal · Grovae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink-1:#101213; --ink-2:#565B5C; --ink-3:#8A8F90;
+  --bg-page:#F4F5F5; --surface:#FFFFFF; --surface-sunken:#ECEEEE; --surface-ink:#101213;
+  --border-1:#DCDEDE;
+  --green-700:#1B4D3E; --green-400:#5C9083; --green-50:#EAF1EE;
+  --accent:var(--green-700);
+  --tint-green:rgba(27,77,62,0.06); --tint-border-green:rgba(27,77,62,0.22);
+  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;
+  --tk:0.15em;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg-page);color:var(--ink-1);
+  font-family:var(--font-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tk);
+  text-transform:uppercase;color:var(--ink-3)}
+
+header.top{background:var(--surface-ink)}
+header.top .wrap{padding-block:22px}
+.mark{display:inline-flex;align-items:center;gap:10px}
+.mark i{width:12px;height:12px;background:var(--green-400);display:block}
+.mark span{font-weight:700;font-size:18px;letter-spacing:-0.04em;color:#fff}
+.runhead{margin-top:10px;font-family:var(--font-mono);font-size:11px;
+  letter-spacing:var(--tk);text-transform:uppercase;color:var(--green-400)}
+
+.hero{background:var(--surface);border-bottom:1px solid var(--border-1)}
+.hero .wrap{padding-block:44px 38px}
+h1{font-size:36px;line-height:1.08;letter-spacing:-0.045em;font-weight:600;margin:14px 0 0;text-wrap:balance}
+.lede{color:var(--ink-2);margin:16px 0 0;max-width:62ch}
+
+section{border-bottom:1px solid var(--border-1)}
+section .wrap{padding-block:40px}
+.sub{background:var(--surface)}
+h2{font-size:26px;letter-spacing:-0.03em;font-weight:600;margin:12px 0 0;text-wrap:balance}
+h3{font-size:18px;letter-spacing:-0.025em;font-weight:600;margin:0}
+p{margin:14px 0 0;color:var(--ink-2);max-width:66ch}
+p b{color:var(--ink-1);font-weight:600}
+ul{margin:14px 0 0;padding-left:18px;color:var(--ink-2)}
+li{margin-top:6px}
+li b{color:var(--ink-1);font-weight:600}
+
+.phase{border:1px solid var(--border-1);background:var(--surface);margin-top:18px}
+.phase-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:15px 22px;border-bottom:1px solid var(--border-1);background:var(--surface-sunken);flex-wrap:wrap}
+.phase-b{padding:18px 22px}
+.phase-b ul{margin-top:0}
+
+.tint{background:var(--tint-green);border:1px solid var(--tint-border-green);padding:22px;margin-top:24px}
+.tint .lbl{color:var(--accent);display:block;margin-bottom:10px}
+.tint ul{margin-top:0;color:var(--ink-1)}
+.tint li{margin-top:6px}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-1);
+  background:var(--surface);margin-top:24px}
+.tier{padding:22px;border-left:1px solid var(--border-1)}
+.tier:first-child{border-left:0}
+.tier .name{font-size:17px;font-weight:600;letter-spacing:-0.02em;margin-top:8px}
+.price{font-size:26px;font-weight:600;letter-spacing:-0.03em;margin-top:12px;line-height:1.05}
+.price.a{color:var(--accent)}
+.per{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:0.08em;margin-top:6px}
+.tier ul{font-size:14.5px;margin-top:14px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border-1);
+  margin-top:22px;background:var(--surface)}
+.grid2 > div{padding:22px;border-left:1px solid var(--border-1)}
+.grid2 > div:first-child{border-left:0}
+.grid2 ul{font-size:14.5px}
+
+footer{background:var(--surface-ink);color:#F4F5F5}
+footer .wrap{padding-block:38px}
+footer h2{color:#fff;margin-top:12px}
+footer p{color:#B8BDBD;max-width:58ch}
+footer .lbl{color:var(--green-400)}
+.cta{display:inline-flex;align-items:center;height:40px;padding:0 20px;margin-top:22px;
+  font-size:13px;font-weight:500;border-radius:2px;background:#F4F5F5;color:var(--ink-1);text-decoration:none}
+.fin{margin-top:26px;padding-top:16px;border-top:1px solid #2A2D2E;font-family:var(--font-mono);
+  font-size:11px;color:#8A8F90;letter-spacing:0.04em;line-height:1.7}
+footer a{color:#fff}
+
+@media (max-width:720px){
+  h1{font-size:28px} h2{font-size:22px}
+  .tiers,.grid2{grid-template-columns:1fr}
+  .tier,.grid2 > div{border-left:0;border-top:1px solid var(--border-1)}
+  .tier:first-child,.grid2 > div:first-child{border-top:0}
+  section .wrap,.hero .wrap{padding-block:30px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="mark"><i></i><span>Grovae</span></span>
+    <div class="runhead">Retention proposal · Nishorama · India + US</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="lbl">Prepared for Ramnek Chhipa · 14 September 2026</div>
+    <h1>What we would build, in what order, and what it costs.</h1>
+    <p class="lede">The audit covers where the gaps are. This covers the work. Two stores, seven flows each, and a campaign calendar running from week one.</p>
+  </div>
+</div>
+
+<section class="sub">
+  <div class="wrap">
+    <div class="lbl">01 · The build</div>
+    <h2>Three phases over six months.</h2>
+    <p>Capture first, then depth, then the compounding work. The order matters more than the speed.</p>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Phase 01 · Capture</h3><span class="lbl">Weeks 1–4</span></div>
+      <div class="phase-b">
+        <ul>
+          <li><b>Lead capture popup</b> with a first-order code, both stores. Email and phone in India, email in the US</li>
+          <li><b>Welcome series</b> behind it, both stores</li>
+          <li><b>Abandoned checkout, then abandoned cart</b></li>
+          <li><b>Deliverability setup</b> — domain, authentication, warm-up before volume</li>
+          <li><b>India account audit</b> so we rebuild what exists rather than duplicate it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Phase 02 · Depth</h3><span class="lbl">Weeks 5–12</span></div>
+      <div class="phase-b">
+        <ul>
+          <li><b>Browse and collection abandonment</b>, both stores</li>
+          <li><b>Add to cart</b>, both stores</li>
+          <li><b>Post-purchase series</b> — US first</li>
+          <li><b>Order confirmation and processing</b>, with WhatsApp carrying it in India</li>
+          <li><b>WhatsApp and SMS</b> fully integrated on the India account</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-h"><h3>Phase 03 · Compounding</h3><span class="lbl">Months 4–6</span></div>
+      <div class="phase-b">
+        <ul>
+          <li><b>Category cross-sell inside the first 60 days</b>, India first — where the repeat behaviour actually sits</li>
+          <li><b>Segmentation split</b> between prospects, first-time buyers and repeat customers</li>
+          <li><b>RCS pilot</b>, India</li>
+          <li><b>Direct mail</b> to high-value segments, US</li>
+          <li><b>Testing on the flows</b> that carry the most volume</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tint">
+      <span class="lbl">Running through all three phases</span>
+      <ul>
+        <li><b>India — 3 to 4 campaigns a week</b>, across email, SMS and WhatsApp</li>
+        <li><b>US — 1 to 2 campaigns a week</b>, across email and SMS</li>
+      </ul>
+      <p style="margin-top:12px;color:var(--ink-2)">Campaigns start in week one and do not wait for the flows. In apparel they carry more weight than automation does.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lbl">02 · Plans</div>
+    <h2>Three ways to run it.</h2>
+    <p>Flat monthly retainer. Both markets included in every plan. No setup fee, no revenue share, no per-send charges.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="lbl">Plan 01</div>
+        <div class="name">Consulting</div>
+        <div class="price">₹95,000</div>
+        <div class="per">PER MONTH</div>
+        <ul>
+          <li>Strategy and flow architecture</li>
+          <li>Campaign calendar and briefs</li>
+          <li>Segmentation logic</li>
+          <li>Weekly call, async through the week</li>
+          <li>Monthly performance review</li>
+          <li>Your team builds and sends</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="lbl">Plan 02</div>
+        <div class="name">Strategy + implementation</div>
+        <div class="price a">₹1,25,000</div>
+        <div class="per">PER MONTH</div>
+        <ul>
+          <li>Everything in Consulting</li>
+          <li>We build and QA all flows, both accounts</li>
+          <li>We build, schedule and send every campaign</li>
+          <li>Deliverability, segmentation, list hygiene</li>
+          <li>We write the briefs, your team designs</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="lbl">Plan 03</div>
+        <div class="name">Full stack</div>
+        <div class="price">₹1,60,000</div>
+        <div class="per">PER MONTH</div>
+        <ul>
+          <li>Everything in Strategy + implementation</li>
+          <li><b>20–25 emails a month</b>, written and designed</li>
+          <li><b>30+ WhatsApp, SMS and short-form pieces</b> a month</li>
+          <li>All copy and all design</li>
+          <li>You supply product photography and approve sends</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:22px">Billed monthly in advance. 30-day notice either side, no lock-in. Klaviyo, Alia and WhatsApp costs are billed directly to you — we take no platform commission. We are Alia partners, so the popup comes with 30 days free either way.</p>
+  </div>
+</section>
+
+<section class="sub">
+  <div class="wrap">
+    <div class="lbl">03 · Working together</div>
+    <h2>How it runs.</h2>
+
+    <div class="grid2">
+      <div>
+        <div class="lbl">What we need</div>
+        <ul>
+          <li>Klaviyo and Shopify admin on both stores</li>
+          <li>Order export with product lines</li>
+          <li>WhatsApp Business access, India</li>
+          <li>Product photography and brand assets</li>
+          <li>One POC who can unblock access</li>
+        </ul>
+      </div>
+      <div>
+        <div class="lbl">How we work</div>
+        <ul>
+          <li>Nothing sends without your approval</li>
+          <li>Built off your data, not templates</li>
+          <li>Reported on revenue, not open rates</li>
+          <li>Weekly call, daily on WhatsApp</li>
+          <li>Relevance before discounting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="lbl">Next step</div>
+    <h2>Pick a plan and we start.</h2>
+    <p>Kickoff within three working days of access. Phase 01 is four weeks from there.</p>
+    <a class="cta" href="mailto:marketing@grovae.com">Reply to confirm →</a>
+    <div class="fin">Grovae · retention &amp; lifecycle · DTC<br>Aman Agrawal · marketing@grovae.com<br><a href="https://grovae.github.io/nishorama-retention-audit/">Full audit →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

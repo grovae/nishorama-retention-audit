@@ -57,6 +57,12 @@ li b{color:var(--ink-1);font-weight:600}
   padding:15px 22px;border-bottom:1px solid var(--border-1);background:var(--surface-sunken);flex-wrap:wrap}
 .phase-b{padding:18px 22px}
 .phase-b ul{margin-top:0}
+.intent{margin:0 0 14px;font-size:15px;color:var(--ink-2)}
+.phase.setup{background:var(--surface-sunken);border-color:var(--border-1)}
+.phase.setup .phase-h{background:transparent}
+.phase.setup h3{font-size:16px;color:var(--ink-2)}
+.phase.setup .phase-b{padding-top:16px}
+ul.plain li{margin-top:5px;font-size:14.5px}
 
 .tint{background:var(--tint-green);border:1px solid var(--tint-border-green);padding:22px;margin-top:24px}
 .tint .lbl{color:var(--accent);display:block;margin-bottom:10px}
@@ -122,17 +128,29 @@ footer a{color:#fff}
   <div class="wrap">
     <div class="lbl">01 · The build</div>
     <h2>Three phases over six months.</h2>
-    <p>Capture first, then depth, then the compounding work. The order matters more than the speed.</p>
+    <p>Each phase is the set of flows that goes live in it. Groundwork happens first, in week one, and is not counted as a phase.</p>
+
+    <div class="phase setup">
+      <div class="phase-h"><h3>Groundwork</h3><span class="lbl">Week 1 · before anything goes live</span></div>
+      <div class="phase-b">
+        <ul class="plain">
+          <li>Klaviyo configured on both stores</li>
+          <li>Deliverability — domain, authentication, warm-up</li>
+          <li>WhatsApp and SMS connected on the India account</li>
+          <li>Audit of what is already built in India, so we rebuild rather than duplicate</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="phase">
       <div class="phase-h"><h3>Phase 01 · Capture</h3><span class="lbl">Weeks 1–4</span></div>
       <div class="phase-b">
+        <p class="intent">Build a list you own, and close the gap nearest the purchase.</p>
         <ul>
-          <li><b>Lead capture popup</b> with a first-order code, both stores. Email and phone in India, email in the US</li>
-          <li><b>Welcome series</b> behind it, both stores</li>
-          <li><b>Abandoned checkout, then abandoned cart</b></li>
-          <li><b>Deliverability setup</b> — domain, authentication, warm-up before volume</li>
-          <li><b>India account audit</b> so we rebuild what exists rather than duplicate it</li>
+          <li><b>Lead capture popup</b> — first-order code. Email and phone in India, email in the US</li>
+          <li><b>Welcome series</b> — both stores</li>
+          <li><b>Abandoned checkout</b> — both stores</li>
+          <li><b>Abandoned cart</b> — both stores</li>
         </ul>
       </div>
     </div>
@@ -140,12 +158,13 @@ footer a{color:#fff}
     <div class="phase">
       <div class="phase-h"><h3>Phase 02 · Depth</h3><span class="lbl">Weeks 5–12</span></div>
       <div class="phase-b">
+        <p class="intent">Cover the rest of the journey, and make the second order happen.</p>
         <ul>
-          <li><b>Browse and collection abandonment</b>, both stores</li>
-          <li><b>Add to cart</b>, both stores</li>
+          <li><b>Browse abandonment</b> — both stores</li>
+          <li><b>Collection abandonment</b> — both stores</li>
+          <li><b>Add to cart</b> — both stores</li>
           <li><b>Post-purchase series</b> — US first</li>
-          <li><b>Order confirmation and processing</b>, with WhatsApp carrying it in India</li>
-          <li><b>WhatsApp and SMS</b> fully integrated on the India account</li>
+          <li><b>Order confirmation and processing</b> — WhatsApp-led in India</li>
         </ul>
       </div>
     </div>
@@ -153,12 +172,13 @@ footer a{color:#fff}
     <div class="phase">
       <div class="phase-h"><h3>Phase 03 · Compounding</h3><span class="lbl">Months 4–6</span></div>
       <div class="phase-b">
+        <p class="intent">Act on the behaviour we now have six months of data on.</p>
         <ul>
-          <li><b>Category cross-sell inside the first 60 days</b>, India first — where the repeat behaviour actually sits</li>
-          <li><b>Segmentation split</b> between prospects, first-time buyers and repeat customers</li>
-          <li><b>RCS pilot</b>, India</li>
-          <li><b>Direct mail</b> to high-value segments, US</li>
-          <li><b>Testing on the flows</b> that carry the most volume</li>
+          <li><b>Category cross-sell</b> — inside the first 60 days, India first</li>
+          <li><b>Win-back</b> — lapsed customers, both stores</li>
+          <li><b>RCS pilot</b> — India</li>
+          <li><b>Direct mail</b> — high-value segments, US</li>
+          <li><b>Testing</b> — on the flows carrying the most volume</li>
         </ul>
       </div>
     </div>
@@ -246,16 +266,8 @@ footer a{color:#fff}
         <p>Monthly reporting on revenue, repeat rate and channel contribution. Weekly updates through the month so nothing is a surprise at the end of it.</p>
       </div>
       <div class="pt">
-        <h3>Nothing sends without your approval</h3>
-        <p>Every campaign, every flow, every time. You see it before your customers do.</p>
-      </div>
-      <div class="pt">
         <h3>Margin protected</h3>
         <p>Relevance before discounting. We do not build a calendar that trains your customers to wait for the next code.</p>
-      </div>
-      <div class="pt">
-        <h3>Weekly call, daily on WhatsApp</h3>
-        <p>One working call a week, and we are reachable in between. Sales and launches do not wait for a scheduled slot.</p>
       </div>
     </div>
 

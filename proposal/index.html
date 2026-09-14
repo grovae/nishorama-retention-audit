@@ -73,11 +73,12 @@ li b{color:var(--ink-1);font-weight:600}
 .per{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:0.08em;margin-top:6px}
 .tier ul{font-size:14.5px;margin-top:14px}
 
-.grid2{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border-1);
+.points{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border-1);
   margin-top:22px;background:var(--surface)}
-.grid2 > div{padding:22px;border-left:1px solid var(--border-1)}
-.grid2 > div:first-child{border-left:0}
-.grid2 ul{font-size:14.5px}
+.pt{padding:22px;border-left:1px solid var(--border-1);border-top:1px solid var(--border-1)}
+.pt:nth-child(odd){border-left:0}
+.pt:nth-child(1),.pt:nth-child(2){border-top:0}
+.pt p{margin-top:8px;font-size:14.5px;max-width:46ch}
 
 footer{background:var(--surface-ink);color:#F4F5F5}
 footer .wrap{padding-block:38px}
@@ -92,9 +93,10 @@ footer a{color:#fff}
 
 @media (max-width:720px){
   h1{font-size:28px} h2{font-size:22px}
-  .tiers,.grid2{grid-template-columns:1fr}
-  .tier,.grid2 > div{border-left:0;border-top:1px solid var(--border-1)}
-  .tier:first-child,.grid2 > div:first-child{border-top:0}
+  .tiers,.points{grid-template-columns:1fr}
+  .tier,.pt{border-left:0;border-top:1px solid var(--border-1)}
+  .tier:first-child,.pt:nth-child(1){border-top:0}
+  .pt:nth-child(2){border-top:1px solid var(--border-1)}
   section .wrap,.hero .wrap{padding-block:30px}
 }
 </style>
@@ -221,36 +223,51 @@ footer a{color:#fff}
       </div>
     </div>
 
-    <p style="margin-top:22px">Billed monthly in advance. 30-day notice either side, no lock-in. Klaviyo, Alia and WhatsApp costs are billed directly to you — we take no platform commission. We are Alia partners, so the popup comes with 30 days free either way.</p>
+    <p style="margin-top:22px"><b>Minimum three-month engagement.</b> Invoices raised on the 1st of every month and cleared by the 10th.</p>
   </div>
 </section>
 
 <section class="sub">
   <div class="wrap">
-    <div class="lbl">03 · Working together</div>
-    <h2>How it runs.</h2>
+    <div class="lbl">03 · How we work</div>
+    <h2>What you are actually buying.</h2>
 
-    <div class="grid2">
-      <div>
-        <div class="lbl">What we need</div>
-        <ul>
-          <li>Klaviyo and Shopify admin on both stores</li>
-          <li>Order export with product lines</li>
-          <li>WhatsApp Business access, India</li>
-          <li>Product photography and brand assets</li>
-          <li>One POC who can unblock access</li>
-        </ul>
+    <div class="points">
+      <div class="pt">
+        <h3>You work with the operators</h3>
+        <p>No account-manager layer, no junior handoff. The people who have scaled and run million-dollar brands are the same people in your account every day.</p>
       </div>
-      <div>
-        <div class="lbl">How we work</div>
-        <ul>
-          <li>Nothing sends without your approval</li>
-          <li>Built off your data, not templates</li>
-          <li>Reported on revenue, not open rates</li>
-          <li>Weekly call, daily on WhatsApp</li>
-          <li>Relevance before discounting</li>
-        </ul>
+      <div class="pt">
+        <h3>Data-driven campaigns, not spray and pray</h3>
+        <p>Every send is built off your order data and your segments. What gets sent, to whom, and when is a decision we can show you the working for.</p>
       </div>
+      <div class="pt">
+        <h3>Reporting that shows the full picture</h3>
+        <p>Monthly reporting on revenue, repeat rate and channel contribution. Weekly updates through the month so nothing is a surprise at the end of it.</p>
+      </div>
+      <div class="pt">
+        <h3>Nothing sends without your approval</h3>
+        <p>Every campaign, every flow, every time. You see it before your customers do.</p>
+      </div>
+      <div class="pt">
+        <h3>Margin protected</h3>
+        <p>Relevance before discounting. We do not build a calendar that trains your customers to wait for the next code.</p>
+      </div>
+      <div class="pt">
+        <h3>Weekly call, daily on WhatsApp</h3>
+        <p>One working call a week, and we are reachable in between. Sales and launches do not wait for a scheduled slot.</p>
+      </div>
+    </div>
+
+    <div class="tint" style="margin-top:26px">
+      <span class="lbl">What we need to start</span>
+      <ul>
+        <li>Klaviyo and Shopify admin on both stores</li>
+        <li>Order export with product lines</li>
+        <li>WhatsApp Business access, India</li>
+        <li>Product photography and brand assets</li>
+        <li>One POC who can unblock access</li>
+      </ul>
     </div>
   </div>
 </section>

@@ -80,6 +80,30 @@ dd{margin:0;word-break:break-word}
 @media (max-width:900px){.flow-grid{grid-template-columns:1fr}.chart{position:static}}
 @media (max-width:640px){h1{font-size:30px}.strip{grid-template-columns:1fr 1fr}.strip>div:nth-child(3){border-left:0}.strip>div:nth-child(n+3){border-top:1px solid var(--b1)}
 .mail-body{grid-template-columns:1fr}.shot{border-right:0;border-bottom:1px solid var(--b1)}.checks{grid-template-columns:1fr}dl{grid-template-columns:96px 1fr}h2{font-size:22px}}
+/* v2: email-first layout */
+.wrap{max-width:1720px}
+.hero{padding:28px 0 24px}
+.viewbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--b1)}
+.viewbar .tabs{margin:0}
+section.flow{padding:28px 0}
+.note{margin:0 0 10px}
+details.logic{margin:0 0 18px}
+details.logic summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g7);padding:6px 0;list-style:none}
+details.logic summary::-webkit-details-marker{display:none}
+details.logic summary:before{content:'+ '}details.logic[open] summary:before{content:'− '}
+details.logic .chart{position:static;max-width:460px;margin-top:8px}
+.mails{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+body.desk .mails{grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+.mail{display:flex;flex-direction:column}
+.mail-head{padding:12px 14px;min-height:118px}
+h4{font-size:15px;line-height:1.3}
+.subj{margin-top:8px;font-weight:600;font-size:13px}
+.prev{color:var(--ink-2);font-size:12px;line-height:1.4}
+.frame{max-height:none;overflow:visible;border:0;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);background:#fff}
+.mail-foot{padding:10px 14px;font-size:12px;display:flex;flex-direction:column;gap:4px}
+.mail-foot .mono{font-size:10px;color:var(--ink-3);letter-spacing:.04em}
+.mail-foot .ok{color:var(--success)}.mail-foot .warn{color:var(--warn)}.mail-foot .bad{color:var(--danger);font-weight:600}
+@media (max-width:640px){.mails{grid-template-columns:1fr}body.desk .mails{grid-template-columns:1fr}.mail-head{min-height:0}}
 </style></head><body>
 <header class="top"><div class="wrap topin"><span class="mark"><span class="sq"></span><span class="wm">Grovae</span></span><span class="eyebrow">Flow review · Nishorama</span></div></header>
 <main class="wrap">
@@ -94,6 +118,7 @@ dd{margin:0;word-break:break-word}
     <div><b>0</b><span>Blocking issues</span></div>
   </div>
 </div>
+<div class="viewbar"><span class="eyebrow">Preview</span><div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div></div>
 <section class="idx"><div class="eyebrow">00 · Index</div>
 <div class="tw"><table><thead><tr><th>Flow</th><th>Market</th><th>Trigger</th><th class="num">Emails</th><th>Status</th></tr></thead><tbody><tr><td><a href="#f-WQumS2">GL · Abandoned Checkout · Email</a><div class="subl mono">WQumS2</div></td><td>Global</td><td>Checkout Started</td><td class="num">6</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-XiQ9Qd">IN · Abandoned Checkout · Email</a><div class="subl mono">XiQ9Qd</div></td><td>India</td><td>Checkout Started</td><td class="num">6</td><td><span class="badge warn"><span class="dot"></span>Check notes</span></td></tr><tr><td><a href="#f-TGECQ7">GL · Browse Abandonment · Email</a><div class="subl mono">TGECQ7</div></td><td>Global</td><td>Viewed Product</td><td class="num">6</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-Wfm5vu">IN · Browse Abandonment · Email</a><div class="subl mono">Wfm5vu</div></td><td>India</td><td>Viewed Product</td><td class="num">4</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-QXBY9J">GL · Post Purchase · Order (Email)</a><div class="subl mono">QXBY9J</div></td><td>Global</td><td>Placed Order</td><td class="num">2</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-UxDv4n">IN · Post Purchase · Order (Email)</a><div class="subl mono">UxDv4n</div></td><td>India</td><td>Placed Order</td><td class="num">2</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-SAAy5U">GL · Post Purchase · Fulfilled (Email)</a><div class="subl mono">SAAy5U</div></td><td>Global</td><td>Fulfilled Order</td><td class="num">4</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr><tr><td><a href="#f-WGqmfW">IN · Post Purchase · Delivered (Email)</a><div class="subl mono">WGqmfW</div></td><td>India</td><td>Delivered Shipment</td><td class="num">4</td><td><span class="badge success"><span class="dot"></span>QA passed</span></td></tr></tbody></table></div>
 </section>
@@ -102,939 +127,413 @@ dd{margin:0;word-break:break-word}
   <div class="sec-head">
     <div class="eyebrow">01 · Global · <span class="mono">WQumS2</span></div>
     <div class="row"><h2>GL · Abandoned Checkout · Email</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Checkout Started</b> event (Nuri Nose Pin, Morli Long Sleeved Kurti, Sonia Pink Fendi Pant &amp; Dupatta), personal details removed.</p>
+    <p class="note">Trigger <b>Checkout Started</b> · 6 emails · from Nishorama &lt;Global@nishorama.com&gt; · previews from a real recent event (Nuri Nose Pin, Morli Long Sleeved Kurti, Sonia Pink Fendi Pant &amp; Dupatta), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-WQumS2-119312708"><span class="lbl">Email</span>C-C1 · You already know how we cut (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>23 hours</div><a class="fc-step fc-email" href="#e-WQumS2-119312713"><span class="lbl">Email</span>C-C2 · $120 and a gift ships with it (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WQumS2-119312720"><span class="lbl">Email</span>C-C3 · Your size isn&#x27;t on hold (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-WQumS2-119312710"><span class="lbl">Email</span>C-P1 · Curated by you (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>23 hours</div><a class="fc-step fc-email" href="#e-WQumS2-119312714"><span class="lbl">Email</span>C-P2 · No surprise at the door (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WQumS2-119312721"><span class="lbl">Email</span>C-P3A · No Ramneks were harmed (Prospects, Option A)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-WQumS2-119312708"><span class="lbl">Email</span>C-C1 · You already know how we cut (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>23 hours</div><a class="fc-step fc-email" href="#e-WQumS2-119312713"><span class="lbl">Email</span>C-C2 · $120 and a gift ships with it (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WQumS2-119312720"><span class="lbl">Email</span>C-C3 · Your size isn&#x27;t on hold (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-WQumS2-119312710"><span class="lbl">Email</span>C-P1 · Curated by you (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>23 hours</div><a class="fc-step fc-email" href="#e-WQumS2-119312714"><span class="lbl">Email</span>C-P2 · No surprise at the door (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WQumS2-119312721"><span class="lbl">Email</span>C-P3A · No Ramneks were harmed (Prospects, Option A)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-WQumS2-119312708">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split yes · 1 hour after trigger</div>
     <h4>C-C1 · You already know how we cut (Customers)</h4>
+    <div class="subj">You already know how we cut</div>
+    <div class="prev">Picked, sized, saved. It just needs you.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312708_m.jpg" data-d="img/WQumS2_119312708_d.jpg" src="img/WQumS2_119312708_m.jpg" alt="Preview of C-C1 · You already know how we cut (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You already know how we cut</dd>
-        <dt>Preview text</dt><dd>Picked, sized, saved. It just needs you.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>50 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312708_m.jpg" data-d="img/WQumS2_119312708_d.jpg" src="img/WQumS2_119312708_m.jpg" alt="Preview of C-C1 · You already know how we cut (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 50 KB</div></div>
 </article>
 <article class="mail" id="e-WQumS2-119312710">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split no · 1 hour after trigger</div>
     <h4>C-P1 · Curated by you (Prospects)</h4>
+    <div class="subj">Curated by you !!</div>
+    <div class="prev">Everything you picked is saved, in the size you chose.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312710_m.jpg" data-d="img/WQumS2_119312710_d.jpg" src="img/WQumS2_119312710_m.jpg" alt="Preview of C-P1 · Curated by you (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Curated by you !!</dd>
-        <dt>Preview text</dt><dd>Everything you picked is saved, in the size you chose.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>54 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312710_m.jpg" data-d="img/WQumS2_119312710_d.jpg" src="img/WQumS2_119312710_m.jpg" alt="Preview of C-P1 · Curated by you (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 54 KB</div></div>
 </article>
 <article class="mail" id="e-WQumS2-119312713">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 24 hours after trigger</div>
+    <div class="eyebrow">Split yes · 24 hours after trigger</div>
     <h4>C-C2 · $120 and a gift ships with it (Customers)</h4>
+    <div class="subj">Cross $120, get a free gift</div>
+    <div class="prev">The gift gets added to your order.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312713_m.jpg" data-d="img/WQumS2_119312713_d.jpg" src="img/WQumS2_119312713_m.jpg" alt="Preview of C-C2 · $120 and a gift ships with it (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Cross $120, get a free gift</dd>
-        <dt>Preview text</dt><dd>The gift gets added to your order.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li><li>Product grid · feed <span class="mono">GL_BESTSELLERS_INSTOCK</span> · Best sellers, last 90 days, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>78 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312713_m.jpg" data-d="img/WQumS2_119312713_d.jpg" src="img/WQumS2_119312713_m.jpg" alt="Preview of C-C2 · $120 and a gift ships with it (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 78 KB</div></div>
 </article>
 <article class="mail" id="e-WQumS2-119312714">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 24 hours after trigger</div>
+    <div class="eyebrow">Split no · 24 hours after trigger</div>
     <h4>C-P2 · No surprise at the door (Prospects)</h4>
+    <div class="subj">No customs bill at your door</div>
+    <div class="prev">The price in your checkout is the price you pay.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312714_m.jpg" data-d="img/WQumS2_119312714_d.jpg" src="img/WQumS2_119312714_m.jpg" alt="Preview of C-P2 · No surprise at the door (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>No customs bill at your door</dd>
-        <dt>Preview text</dt><dd>The price in your checkout is the price you pay.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>61 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312714_m.jpg" data-d="img/WQumS2_119312714_d.jpg" src="img/WQumS2_119312714_m.jpg" alt="Preview of C-P2 · No surprise at the door (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 61 KB</div></div>
 </article>
 <article class="mail" id="e-WQumS2-119312720">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 2 days after trigger</div>
+    <div class="eyebrow">Split yes · 2 days after trigger</div>
     <h4>C-C3 · Your size isn&#x27;t on hold (Customers)</h4>
+    <div class="subj">Your size isn&#x27;t on hold</div>
+    <div class="prev">Small batches. When your size goes, it goes.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312720_m.jpg" data-d="img/WQumS2_119312720_d.jpg" src="img/WQumS2_119312720_m.jpg" alt="Preview of C-C3 · Your size isn&#x27;t on hold (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Your size isn&#x27;t on hold</dd>
-        <dt>Preview text</dt><dd>Small batches. When your size goes, it goes.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>47 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312720_m.jpg" data-d="img/WQumS2_119312720_d.jpg" src="img/WQumS2_119312720_m.jpg" alt="Preview of C-C3 · Your size isn&#x27;t on hold (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 47 KB</div></div>
 </article>
 <article class="mail" id="e-WQumS2-119312721">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 2 days after trigger</div>
+    <div class="eyebrow">Split no · 2 days after trigger</div>
     <h4>C-P3A · No Ramneks were harmed (Prospects, Option A)</h4>
+    <div class="subj">Ramnek asked us to send this</div>
+    <div class="prev">NISHO10 takes 10% off your first order.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312721_m.jpg" data-d="img/WQumS2_119312721_d.jpg" src="img/WQumS2_119312721_m.jpg" alt="Preview of C-P3A · No Ramneks were harmed (Prospects, Option A)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Ramnek asked us to send this</dd>
-        <dt>Preview text</dt><dd>NISHO10 takes 10% off your first order.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>58 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WQumS2_119312721_m.jpg" data-d="img/WQumS2_119312721_d.jpg" src="img/WQumS2_119312721_m.jpg" alt="Preview of C-P3A · No Ramneks were harmed (Prospects, Option A)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 58 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-XiQ9Qd">
   <div class="sec-head">
     <div class="eyebrow">02 · India · <span class="mono">XiQ9Qd</span></div>
     <div class="row"><h2>IN · Abandoned Checkout · Email</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge warn"><span class="dot"></span>Check notes</span></div>
-    <p class="note">Previews rendered from a real recent <b>Checkout Started</b> event (Ishita Sleeved Corset Kurti, Nitara Wide Shoulder Strap Kurti), personal details removed.</p>
+    <p class="note">Trigger <b>Checkout Started</b> · 6 emails · from Nishorama &lt;support@nishorama.com&gt; · previews from a real recent event (Ishita Sleeved Corset Kurti, Nitara Wide Shoulder Strap Kurti), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started</b><div class="sub"><b>Source Name</b> not equals “shopify_draft_order”</div></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312786"><span class="lbl">Email</span>C-C1 · You already know how we cut (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312812"><span class="lbl">Email</span>C-C2 · ₹2,599 and the site does the rest (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312861"><span class="lbl">Email</span>C-C3 · Your size isn&#x27;t on hold (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312799"><span class="lbl">Email</span>C-P1 · Curated by you (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312826"><span class="lbl">Email</span>C-P2 · Yes, your tailor is cheaper (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312873"><span class="lbl">Email</span>C-P3A · No Ramneks were harmed (Prospects, Option A)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started</b><div class="sub"><b>Source Name</b> not equals “shopify_draft_order”</div></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312786"><span class="lbl">Email</span>C-C1 · You already know how we cut (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312812"><span class="lbl">Email</span>C-C2 · ₹2,599 and the site does the rest (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312861"><span class="lbl">Email</span>C-C3 · Your size isn&#x27;t on hold (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312799"><span class="lbl">Email</span>C-P1 · Curated by you (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312826"><span class="lbl">Email</span>C-P2 · Yes, your tailor is cheaper (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-XiQ9Qd-119312873"><span class="lbl">Email</span>C-P3A · No Ramneks were harmed (Prospects, Option A)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-XiQ9Qd-119312786">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 2 hours after trigger</div>
+    <div class="eyebrow">Split yes · 2 hours after trigger</div>
     <h4>C-C1 · You already know how we cut (Customers)</h4>
+    <div class="subj">You already know how we cut</div>
+    <div class="prev">Picked, sized, saved. It just needs you.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312786_m.jpg" data-d="img/XiQ9Qd_119312786_d.jpg" src="img/XiQ9Qd_119312786_m.jpg" alt="Preview of C-C1 · You already know how we cut (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You already know how we cut</dd>
-        <dt>Preview text</dt><dd>Picked, sized, saved. It just needs you.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>48 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312786_m.jpg" data-d="img/XiQ9Qd_119312786_d.jpg" src="img/XiQ9Qd_119312786_m.jpg" alt="Preview of C-C1 · You already know how we cut (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 48 KB</div></div>
 </article>
 <article class="mail" id="e-XiQ9Qd-119312799">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 2 hours after trigger</div>
+    <div class="eyebrow">Split no · 2 hours after trigger</div>
     <h4>C-P1 · Curated by you (Prospects)</h4>
+    <div class="subj">Curated by you !!</div>
+    <div class="prev">Everything you picked is saved, in the size you chose.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312799_m.jpg" data-d="img/XiQ9Qd_119312799_d.jpg" src="img/XiQ9Qd_119312799_m.jpg" alt="Preview of C-P1 · Curated by you (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Curated by you !!</dd>
-        <dt>Preview text</dt><dd>Everything you picked is saved, in the size you chose.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>50 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312799_m.jpg" data-d="img/XiQ9Qd_119312799_d.jpg" src="img/XiQ9Qd_119312799_m.jpg" alt="Preview of C-P1 · Curated by you (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 50 KB</div></div>
 </article>
 <article class="mail" id="e-XiQ9Qd-119312812">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 26 hours after trigger</div>
+    <div class="eyebrow">Split yes · 26 hours after trigger</div>
     <h4>C-C2 · ₹2,599 and the site does the rest (Customers)</h4>
+    <div class="subj">Cross ₹2,599, 10% comes off</div>
+    <div class="prev">The site takes it off automatically.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312812_m.jpg" data-d="img/XiQ9Qd_119312812_d.jpg" src="img/XiQ9Qd_119312812_m.jpg" alt="Preview of C-C2 · ₹2,599 and the site does the rest (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Cross ₹2,599, 10% comes off</dd>
-        <dt>Preview text</dt><dd>The site takes it off automatically.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li><li>Product grid · feed <span class="mono">IN_BESTSELLERS_INSTOCK</span> · Best sellers, last 90 days, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>73 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312812_m.jpg" data-d="img/XiQ9Qd_119312812_d.jpg" src="img/XiQ9Qd_119312812_m.jpg" alt="Preview of C-C2 · ₹2,599 and the site does the rest (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 73 KB</div></div>
 </article>
 <article class="mail" id="e-XiQ9Qd-119312826">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 26 hours after trigger</div>
+    <div class="eyebrow">Split no · 26 hours after trigger</div>
     <h4>C-P2 · Yes, your tailor is cheaper (Prospects)</h4>
+    <div class="subj">Yes, your tailor is cheaper</div>
+    <div class="prev">Stamped by hand, cut like nothing he&#x27;s made.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312826_m.jpg" data-d="img/XiQ9Qd_119312826_d.jpg" src="img/XiQ9Qd_119312826_m.jpg" alt="Preview of C-P2 · Yes, your tailor is cheaper (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Yes, your tailor is cheaper</dd>
-        <dt>Preview text</dt><dd>Stamped by hand, cut like nothing he&#x27;s made.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="warn"><span>Size</span><span>96 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312826_m.jpg" data-d="img/XiQ9Qd_119312826_d.jpg" src="img/XiQ9Qd_119312826_m.jpg" alt="Preview of C-P2 · Yes, your tailor is cheaper (Prospects)"></div>
+  <div class="mail-foot"><div><span class="warn">Size: 96 KB</span></div><div class="mono">Event data · Smart sending on · UTMs on · 96 KB</div></div>
 </article>
 <article class="mail" id="e-XiQ9Qd-119312861">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 2 days 2 hours after trigger</div>
+    <div class="eyebrow">Split yes · 2 days 2 hours after trigger</div>
     <h4>C-C3 · Your size isn&#x27;t on hold (Customers)</h4>
+    <div class="subj">Your size isn&#x27;t on hold</div>
+    <div class="prev">Small batches. When your size goes, it goes.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312861_m.jpg" data-d="img/XiQ9Qd_119312861_d.jpg" src="img/XiQ9Qd_119312861_m.jpg" alt="Preview of C-C3 · Your size isn&#x27;t on hold (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Your size isn&#x27;t on hold</dd>
-        <dt>Preview text</dt><dd>Small batches. When your size goes, it goes.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>45 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312861_m.jpg" data-d="img/XiQ9Qd_119312861_d.jpg" src="img/XiQ9Qd_119312861_m.jpg" alt="Preview of C-C3 · Your size isn&#x27;t on hold (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 45 KB</div></div>
 </article>
 <article class="mail" id="e-XiQ9Qd-119312873">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 2 days 2 hours after trigger</div>
+    <div class="eyebrow">Split no · 2 days 2 hours after trigger</div>
     <h4>C-P3A · No Ramneks were harmed (Prospects, Option A)</h4>
+    <div class="subj">Ramnek asked us to send this</div>
+    <div class="prev">NISHO10 takes 10% off your first order.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312873_m.jpg" data-d="img/XiQ9Qd_119312873_d.jpg" src="img/XiQ9Qd_119312873_m.jpg" alt="Preview of C-P3A · No Ramneks were harmed (Prospects, Option A)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Ramnek asked us to send this</dd>
-        <dt>Preview text</dt><dd>NISHO10 takes 10% off your first order.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Checkout items from the event (image, name, size, price) and the checkout link</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>54 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/XiQ9Qd_119312873_m.jpg" data-d="img/XiQ9Qd_119312873_d.jpg" src="img/XiQ9Qd_119312873_m.jpg" alt="Preview of C-P3A · No Ramneks were harmed (Prospects, Option A)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 54 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-TGECQ7">
   <div class="sec-head">
     <div class="eyebrow">03 · Global · <span class="mono">TGECQ7</span></div>
     <div class="row"><h2>GL · Browse Abandonment · Email</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Viewed Product</b> event (Mausam Top), personal details removed.</p>
+    <p class="note">Trigger <b>Viewed Product</b> · 6 emails · from Nishorama &lt;Global@nishorama.com&gt; · previews from a real recent event (Mausam Top), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310757"><span class="lbl">Email</span>B-C1 · A week of fits (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>22 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310764"><span class="lbl">Email</span>B-C2 · Not a supporting role (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 days</div><a class="fc-step fc-email" href="#e-TGECQ7-119310768"><span class="lbl">Email</span>B-C3 · Fresh off the block (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310760"><span class="lbl">Email</span>B-P1 · See it move (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>22 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310765"><span class="lbl">Email</span>B-P2 · Proven, repeat-bought (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 days</div><a class="fc-step fc-email" href="#e-TGECQ7-119310769"><span class="lbl">Email</span>B-P3 · Ask us (Prospects)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310757"><span class="lbl">Email</span>B-C1 · A week of fits (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>22 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310764"><span class="lbl">Email</span>B-C2 · Not a supporting role (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 days</div><a class="fc-step fc-email" href="#e-TGECQ7-119310768"><span class="lbl">Email</span>B-C3 · Fresh off the block (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310760"><span class="lbl">Email</span>B-P1 · See it move (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>22 hours</div><a class="fc-step fc-email" href="#e-TGECQ7-119310765"><span class="lbl">Email</span>B-P2 · Proven, repeat-bought (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 days</div><a class="fc-step fc-email" href="#e-TGECQ7-119310769"><span class="lbl">Email</span>B-P3 · Ask us (Prospects)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-TGECQ7-119310757">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 2 hours after trigger</div>
+    <div class="eyebrow">Split yes · 2 hours after trigger</div>
     <h4>B-C1 · A week of fits (Customers)</h4>
+    <div class="subj">One piece, a week of fits</div>
+    <div class="prev">How far one piece goes.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310757_m.jpg" data-d="img/TGECQ7_119310757_d.jpg" src="img/TGECQ7_119310757_m.jpg" alt="Preview of B-C1 · A week of fits (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>One piece, a week of fits</dd>
-        <dt>Preview text</dt><dd>How far one piece goes.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>44 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310757_m.jpg" data-d="img/TGECQ7_119310757_d.jpg" src="img/TGECQ7_119310757_m.jpg" alt="Preview of B-C1 · A week of fits (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 44 KB</div></div>
 </article>
 <article class="mail" id="e-TGECQ7-119310760">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 2 hours after trigger</div>
+    <div class="eyebrow">Split no · 2 hours after trigger</div>
     <h4>B-P1 · See it move (Prospects)</h4>
+    <div class="subj">You&#x27;ve seen the photo. Now see it move.</div>
+    <div class="prev">The crew wears everything we make. See it on real people.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310760_m.jpg" data-d="img/TGECQ7_119310760_d.jpg" src="img/TGECQ7_119310760_m.jpg" alt="Preview of B-P1 · See it move (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You&#x27;ve seen the photo. Now see it move.</dd>
-        <dt>Preview text</dt><dd>The crew wears everything we make. See it on real people.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>53 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310760_m.jpg" data-d="img/TGECQ7_119310760_d.jpg" src="img/TGECQ7_119310760_m.jpg" alt="Preview of B-P1 · See it move (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 53 KB</div></div>
 </article>
 <article class="mail" id="e-TGECQ7-119310764">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 24 hours after trigger</div>
+    <div class="eyebrow">Split yes · 24 hours after trigger</div>
     <h4>B-C2 · Not a supporting role (Customers)</h4>
+    <div class="subj">Not a supporting role</div>
+    <div class="prev">Our Main Character edit, next to the piece you liked.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310764_m.jpg" data-d="img/TGECQ7_119310764_d.jpg" src="img/TGECQ7_119310764_m.jpg" alt="Preview of B-C2 · Not a supporting role (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Not a supporting role</dd>
-        <dt>Preview text</dt><dd>Our Main Character edit, next to the piece you liked.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li><li>Product grid · feed <span class="mono">GL_MAINCHAR_INSTOCK</span> · Main Character collection, best sellers, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>59 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310764_m.jpg" data-d="img/TGECQ7_119310764_d.jpg" src="img/TGECQ7_119310764_m.jpg" alt="Preview of B-C2 · Not a supporting role (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 59 KB</div></div>
 </article>
 <article class="mail" id="e-TGECQ7-119310765">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 24 hours after trigger</div>
+    <div class="eyebrow">Split no · 24 hours after trigger</div>
     <h4>B-P2 · Proven, repeat-bought (Prospects)</h4>
+    <div class="subj">Proven. Repeat-bought.</div>
+    <div class="prev">The pieces people come back for.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310765_m.jpg" data-d="img/TGECQ7_119310765_d.jpg" src="img/TGECQ7_119310765_m.jpg" alt="Preview of B-P2 · Proven, repeat-bought (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Proven. Repeat-bought.</dd>
-        <dt>Preview text</dt><dd>The pieces people come back for.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li><li>Product grid · feed <span class="mono">GL_CERTHITS_INSTOCK</span> · Certified Hits collection, best sellers, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>63 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310765_m.jpg" data-d="img/TGECQ7_119310765_d.jpg" src="img/TGECQ7_119310765_m.jpg" alt="Preview of B-P2 · Proven, repeat-bought (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 63 KB</div></div>
 </article>
 <article class="mail" id="e-TGECQ7-119310768">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 3 days after trigger</div>
+    <div class="eyebrow">Split yes · 3 days after trigger</div>
     <h4>B-C3 · Fresh off the block (Customers)</h4>
+    <div class="subj">Fresh off the block</div>
+    <div class="prev">The newest drop, plus the piece you were looking at.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310768_m.jpg" data-d="img/TGECQ7_119310768_d.jpg" src="img/TGECQ7_119310768_m.jpg" alt="Preview of B-C3 · Fresh off the block (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Fresh off the block</dd>
-        <dt>Preview text</dt><dd>The newest drop, plus the piece you were looking at.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li><li>Product grid · feed <span class="mono">GL_NEWEST_INSTOCK</span> · Newest products, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>61 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310768_m.jpg" data-d="img/TGECQ7_119310768_d.jpg" src="img/TGECQ7_119310768_m.jpg" alt="Preview of B-C3 · Fresh off the block (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 61 KB</div></div>
 </article>
 <article class="mail" id="e-TGECQ7-119310769">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 3 days after trigger</div>
+    <div class="eyebrow">Split no · 3 days after trigger</div>
     <h4>B-P3 · Ask us (Prospects)</h4>
+    <div class="subj">Not sure? Ask us.</div>
+    <div class="prev">Reply to this email and a person answers. Plus 10% off your first piece.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310769_m.jpg" data-d="img/TGECQ7_119310769_d.jpg" src="img/TGECQ7_119310769_m.jpg" alt="Preview of B-P3 · Ask us (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Not sure? Ask us.</dd>
-        <dt>Preview text</dt><dd>Reply to this email and a person answers. Plus 10% off your first piece.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>48 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/TGECQ7_119310769_m.jpg" data-d="img/TGECQ7_119310769_d.jpg" src="img/TGECQ7_119310769_m.jpg" alt="Preview of B-P3 · Ask us (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 48 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-Wfm5vu">
   <div class="sec-head">
     <div class="eyebrow">04 · India · <span class="mono">Wfm5vu</span></div>
     <div class="row"><h2>IN · Browse Abandonment · Email</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Viewed Product</b> event (Raas Coverup), personal details removed.</p>
+    <p class="note">Trigger <b>Viewed Product</b> · 4 emails · from Nishorama &lt;support@nishorama.com&gt; · previews from a real recent event (Raas Coverup), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>12 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310775"><span class="lbl">Email</span>B-C1 · A week of fits (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>36 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310781"><span class="lbl">Email</span>B-C2 · Fresh off the block (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>12 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310778"><span class="lbl">Email</span>B-P1 · See it move (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>36 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310782"><span class="lbl">Email</span>B-P2 · Ask a human (Prospects)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>12 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310775"><span class="lbl">Email</span>B-C1 · A week of fits (Customers)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>36 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310781"><span class="lbl">Email</span>B-C2 · Fresh off the block (Customers)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>12 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310778"><span class="lbl">Email</span>B-P1 · See it move (Prospects)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>36 hours</div><a class="fc-step fc-email" href="#e-Wfm5vu-119310782"><span class="lbl">Email</span>B-P2 · Ask a human (Prospects)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-Wfm5vu-119310775">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 12 hours after trigger</div>
+    <div class="eyebrow">Split yes · 12 hours after trigger</div>
     <h4>B-C1 · A week of fits (Customers)</h4>
+    <div class="subj">One piece, a week of fits</div>
+    <div class="prev">How far one piece goes.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310775_m.jpg" data-d="img/Wfm5vu_119310775_d.jpg" src="img/Wfm5vu_119310775_m.jpg" alt="Preview of B-C1 · A week of fits (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>One piece, a week of fits</dd>
-        <dt>Preview text</dt><dd>How far one piece goes.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>44 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310775_m.jpg" data-d="img/Wfm5vu_119310775_d.jpg" src="img/Wfm5vu_119310775_m.jpg" alt="Preview of B-C1 · A week of fits (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 44 KB</div></div>
 </article>
 <article class="mail" id="e-Wfm5vu-119310778">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 12 hours after trigger</div>
+    <div class="eyebrow">Split no · 12 hours after trigger</div>
     <h4>B-P1 · See it move (Prospects)</h4>
+    <div class="subj">You&#x27;ve seen the photo. Now see it move.</div>
+    <div class="prev">The crew wears everything we make. See it on real people.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310778_m.jpg" data-d="img/Wfm5vu_119310778_d.jpg" src="img/Wfm5vu_119310778_m.jpg" alt="Preview of B-P1 · See it move (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You&#x27;ve seen the photo. Now see it move.</dd>
-        <dt>Preview text</dt><dd>The crew wears everything we make. See it on real people.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>53 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310778_m.jpg" data-d="img/Wfm5vu_119310778_d.jpg" src="img/Wfm5vu_119310778_m.jpg" alt="Preview of B-P1 · See it move (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 53 KB</div></div>
 </article>
 <article class="mail" id="e-Wfm5vu-119310781">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 2 days after trigger</div>
+    <div class="eyebrow">Split yes · 2 days after trigger</div>
     <h4>B-C2 · Fresh off the block (Customers)</h4>
+    <div class="subj">Fresh off the block</div>
+    <div class="prev">The newest drop, plus the piece you were looking at.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310781_m.jpg" data-d="img/Wfm5vu_119310781_d.jpg" src="img/Wfm5vu_119310781_m.jpg" alt="Preview of B-C2 · Fresh off the block (Customers)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Fresh off the block</dd>
-        <dt>Preview text</dt><dd>The newest drop, plus the piece you were looking at.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li><li>Product grid · feed <span class="mono">IN_NEWEST_INSTOCK</span> · Newest products, in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>61 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310781_m.jpg" data-d="img/Wfm5vu_119310781_d.jpg" src="img/Wfm5vu_119310781_m.jpg" alt="Preview of B-C2 · Fresh off the block (Customers)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Live product grid · Smart sending on · UTMs on · 61 KB</div></div>
 </article>
 <article class="mail" id="e-Wfm5vu-119310782">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 2 days after trigger</div>
+    <div class="eyebrow">Split no · 2 days after trigger</div>
     <h4>B-P2 · Ask a human (Prospects)</h4>
+    <div class="subj">Not sure? Ask a human.</div>
+    <div class="prev">Someone from the team replies. Plus 10% off your first piece.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310782_m.jpg" data-d="img/Wfm5vu_119310782_d.jpg" src="img/Wfm5vu_119310782_m.jpg" alt="Preview of B-P2 · Ask a human (Prospects)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Not sure? Ask a human.</dd>
-        <dt>Preview text</dt><dd>Someone from the team replies. Plus 10% off your first piece.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Viewed product from the event (image, name, price, link)</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>49 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/Wfm5vu_119310782_m.jpg" data-d="img/Wfm5vu_119310782_d.jpg" src="img/Wfm5vu_119310782_m.jpg" alt="Preview of B-P2 · Ask a human (Prospects)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 49 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-QXBY9J">
   <div class="sec-head">
     <div class="eyebrow">05 · Global · <span class="mono">QXBY9J</span></div>
     <div class="row"><h2>GL · Post Purchase · Order (Email)</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Placed Order</b> event (Aish Set), personal details removed.</p>
+    <p class="note">Trigger <b>Placed Order</b> · 2 emails · from Nishorama &lt;Global@nishorama.com&gt; · previews from a real recent event (Aish Set), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Placed Order</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-QXBY9J-119265173"><span class="lbl">Email</span>P-F1 · Welcome to the family name (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-QXBY9J-119265174"><span class="lbl">Email</span>P-R1 · You came back (Repeat order)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Placed Order</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-QXBY9J-119265173"><span class="lbl">Email</span>P-F1 · Welcome to the family name (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-QXBY9J-119265174"><span class="lbl">Email</span>P-R1 · You came back (Repeat order)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-QXBY9J-119265173">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split yes · 1 hour after trigger</div>
     <h4>P-F1 · Welcome to the family name (First order)</h4>
+    <div class="subj">Welcome to the family name</div>
+    <div class="prev">What Nishorama actually means, and what happens next.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/QXBY9J_119265173_m.jpg" data-d="img/QXBY9J_119265173_d.jpg" src="img/QXBY9J_119265173_m.jpg" alt="Preview of P-F1 · Welcome to the family name (First order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Welcome to the family name</dd>
-        <dt>Preview text</dt><dd>What Nishorama actually means, and what happens next.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Ordered items from the event</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>42 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/QXBY9J_119265173_m.jpg" data-d="img/QXBY9J_119265173_d.jpg" src="img/QXBY9J_119265173_m.jpg" alt="Preview of P-F1 · Welcome to the family name (First order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 42 KB</div></div>
 </article>
 <article class="mail" id="e-QXBY9J-119265174">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split no · 1 hour after trigger</div>
     <h4>P-R1 · You came back (Repeat order)</h4>
+    <div class="subj">You came back</div>
+    <div class="prev">The only review we actually need.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/QXBY9J_119265174_m.jpg" data-d="img/QXBY9J_119265174_d.jpg" src="img/QXBY9J_119265174_m.jpg" alt="Preview of P-R1 · You came back (Repeat order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You came back</dd>
-        <dt>Preview text</dt><dd>The only review we actually need.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Ordered items from the event</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>48 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/QXBY9J_119265174_m.jpg" data-d="img/QXBY9J_119265174_d.jpg" src="img/QXBY9J_119265174_m.jpg" alt="Preview of P-R1 · You came back (Repeat order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 48 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-UxDv4n">
   <div class="sec-head">
     <div class="eyebrow">06 · India · <span class="mono">UxDv4n</span></div>
     <div class="row"><h2>IN · Post Purchase · Order (Email)</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Placed Order</b> event (Nuha Fitted Shirt), personal details removed.</p>
+    <p class="note">Trigger <b>Placed Order</b> · 2 emails · from Nishorama &lt;support@nishorama.com&gt; · previews from a real recent event (Nuha Fitted Shirt), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Placed Order</b><div class="sub"><b>Source Name</b> not equals “QuickReturns Returns/Exchanges”</div></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-UxDv4n-119266226"><span class="lbl">Email</span>P-F1 · Welcome to the family name (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-UxDv4n-119266228"><span class="lbl">Email</span>P-R1 · You came back (Repeat order)</a></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Placed Order</b><div class="sub"><b>Source Name</b> not equals “QuickReturns Returns/Exchanges”</div></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-UxDv4n-119266226"><span class="lbl">Email</span>P-F1 · Welcome to the family name (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-UxDv4n-119266228"><span class="lbl">Email</span>P-R1 · You came back (Repeat order)</a></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-UxDv4n-119266226">
   <div class="mail-head">
-    <div class="eyebrow">Split yes · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split yes · 1 hour after trigger</div>
     <h4>P-F1 · Welcome to the family name (First order)</h4>
+    <div class="subj">Welcome to the family name</div>
+    <div class="prev">What Nishorama actually means, and what happens next.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/UxDv4n_119266226_m.jpg" data-d="img/UxDv4n_119266226_d.jpg" src="img/UxDv4n_119266226_m.jpg" alt="Preview of P-F1 · Welcome to the family name (First order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Welcome to the family name</dd>
-        <dt>Preview text</dt><dd>What Nishorama actually means, and what happens next.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Ordered items from the event</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>42 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/UxDv4n_119266226_m.jpg" data-d="img/UxDv4n_119266226_d.jpg" src="img/UxDv4n_119266226_m.jpg" alt="Preview of P-F1 · Welcome to the family name (First order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 42 KB</div></div>
 </article>
 <article class="mail" id="e-UxDv4n-119266228">
   <div class="mail-head">
-    <div class="eyebrow">Split no · sends 1 hour after trigger</div>
+    <div class="eyebrow">Split no · 1 hour after trigger</div>
     <h4>P-R1 · You came back (Repeat order)</h4>
+    <div class="subj">You came back</div>
+    <div class="prev">The only review we actually need.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/UxDv4n_119266228_m.jpg" data-d="img/UxDv4n_119266228_d.jpg" src="img/UxDv4n_119266228_m.jpg" alt="Preview of P-R1 · You came back (Repeat order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>You came back</dd>
-        <dt>Preview text</dt><dd>The only review we actually need.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Ordered items from the event</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>48 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/UxDv4n_119266228_m.jpg" data-d="img/UxDv4n_119266228_d.jpg" src="img/UxDv4n_119266228_m.jpg" alt="Preview of P-R1 · You came back (Repeat order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 48 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-SAAy5U">
   <div class="sec-head">
     <div class="eyebrow">07 · Global · <span class="mono">SAAy5U</span></div>
     <div class="row"><h2>GL · Post Purchase · Fulfilled (Email)</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Fulfilled Order</b> event (Jashn Full Sleeve Structured Kurti Top), personal details removed.</p>
+    <p class="note">Trigger <b>Fulfilled Order</b> · 4 emails · from Nishorama &lt;Global@nishorama.com&gt; · previews from a real recent event (Jashn Full Sleeve Structured Kurti Top), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Fulfilled Order</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>9 days</div><a class="fc-step fc-email" href="#e-SAAy5U-119312724"><span class="lbl">Email</span>P-D1 · Three things first (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>7 days</div><a class="fc-step fc-email" href="#e-SAAy5U-119312730"><span class="lbl">Email</span>P-D2 · One of the faces (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>14 days</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once since starting this flow</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-end">Exit</div></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><a class="fc-step fc-email" href="#e-SAAy5U-119312740"><span class="lbl">Email</span>P-D3a · Fit No. 2 (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><a class="fc-step fc-email" href="#e-SAAy5U-119312751"><span class="lbl">Email</span>P-D3b · Shortlisted (Repeat order)</a></div></div></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Fulfilled Order</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>9 days</div><a class="fc-step fc-email" href="#e-SAAy5U-119312724"><span class="lbl">Email</span>P-D1 · Three things first (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>7 days</div><a class="fc-step fc-email" href="#e-SAAy5U-119312730"><span class="lbl">Email</span>P-D2 · One of the faces (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>14 days</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once since starting this flow</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-end">Exit</div></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><a class="fc-step fc-email" href="#e-SAAy5U-119312740"><span class="lbl">Email</span>P-D3a · Fit No. 2 (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><a class="fc-step fc-email" href="#e-SAAy5U-119312751"><span class="lbl">Email</span>P-D3b · Shortlisted (Repeat order)</a></div></div></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-SAAy5U-119312724">
   <div class="mail-head">
-    <div class="eyebrow">Everyone · sends 9 days after trigger</div>
+    <div class="eyebrow">Everyone · 9 days after trigger</div>
     <h4>P-D1 · Three things first (Everyone)</h4>
+    <div class="subj">Read this before the first wash.</div>
+    <div class="prev">The colour, the wash and what to do if anything&#x27;s off.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312724_m.jpg" data-d="img/SAAy5U_119312724_d.jpg" src="img/SAAy5U_119312724_m.jpg" alt="Preview of P-D1 · Three things first (Everyone)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Read this before the first wash.</dd>
-        <dt>Preview text</dt><dd>The colour, the wash and what to do if anything&#x27;s off.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>None. Static content only.</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>68 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312724_m.jpg" data-d="img/SAAy5U_119312724_d.jpg" src="img/SAAy5U_119312724_m.jpg" alt="Preview of P-D1 · Three things first (Everyone)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Static · Smart sending off · UTMs on · 68 KB</div></div>
 </article>
 <article class="mail" id="e-SAAy5U-119312730">
   <div class="mail-head">
-    <div class="eyebrow">Everyone · sends 16 days after trigger</div>
+    <div class="eyebrow">Everyone · 16 days after trigger</div>
     <h4>P-D2 · One of the faces (Everyone)</h4>
+    <div class="subj">Become one of the faces of Nishorama</div>
+    <div class="prev">Tag @nishorama. That&#x27;s how girls end up in our Spotted! highlight.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312730_m.jpg" data-d="img/SAAy5U_119312730_d.jpg" src="img/SAAy5U_119312730_m.jpg" alt="Preview of P-D2 · One of the faces (Everyone)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Become one of the faces of Nishorama</dd>
-        <dt>Preview text</dt><dd>Tag @nishorama. That&#x27;s how girls end up in our Spotted! highlight.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>None. Static content only.</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>36 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312730_m.jpg" data-d="img/SAAy5U_119312730_d.jpg" src="img/SAAy5U_119312730_m.jpg" alt="Preview of P-D2 · One of the faces (Everyone)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Static · Smart sending on · UTMs on · 36 KB</div></div>
 </article>
 <article class="mail" id="e-SAAy5U-119312740">
   <div class="mail-head">
-    <div class="eyebrow">Split no → Split yes · sends 30 days after trigger</div>
+    <div class="eyebrow">Split no → Split yes · 30 days after trigger</div>
     <h4>P-D3a · Fit No. 2 (First order)</h4>
+    <div class="subj">Fit No. 2</div>
+    <div class="prev">Picked to go with what you already own.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312740_m.jpg" data-d="img/SAAy5U_119312740_d.jpg" src="img/SAAy5U_119312740_m.jpg" alt="Preview of P-D3a · Fit No. 2 (First order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Fit No. 2</dd>
-        <dt>Preview text</dt><dd>Picked to go with what you already own.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Product grid · feed <span class="mono">GL_RECS_INSTOCK</span> · Recommended from purchase history (falls back to best sellers), in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>54 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312740_m.jpg" data-d="img/SAAy5U_119312740_d.jpg" src="img/SAAy5U_119312740_m.jpg" alt="Preview of P-D3a · Fit No. 2 (First order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Live product grid · Smart sending on · UTMs on · 54 KB</div></div>
 </article>
 <article class="mail" id="e-SAAy5U-119312751">
   <div class="mail-head">
-    <div class="eyebrow">Split no → Split no · sends 30 days after trigger</div>
+    <div class="eyebrow">Split no → Split no · 30 days after trigger</div>
     <h4>P-D3b · Shortlisted (Repeat order)</h4>
+    <div class="subj">We shortlisted your next one</div>
+    <div class="prev">New pieces that fit what you already wear.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312751_m.jpg" data-d="img/SAAy5U_119312751_d.jpg" src="img/SAAy5U_119312751_m.jpg" alt="Preview of P-D3b · Shortlisted (Repeat order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>We shortlisted your next one</dd>
-        <dt>Preview text</dt><dd>New pieces that fit what you already wear.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">Global@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Product grid · feed <span class="mono">GL_RECS_INSTOCK</span> · Recommended from purchase history (falls back to best sellers), in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>56 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/SAAy5U_119312751_m.jpg" data-d="img/SAAy5U_119312751_d.jpg" src="img/SAAy5U_119312751_m.jpg" alt="Preview of P-D3b · Shortlisted (Repeat order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Live product grid · Smart sending on · UTMs on · 56 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="flow" id="f-WGqmfW">
   <div class="sec-head">
     <div class="eyebrow">08 · India · <span class="mono">WGqmfW</span></div>
     <div class="row"><h2>IN · Post Purchase · Delivered (Email)</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
-    <p class="note">Previews rendered from a real recent <b>Delivered Shipment</b> event (a recent event), personal details removed.</p>
+    <p class="note">Trigger <b>Delivered Shipment</b> · 4 emails · from Nishorama &lt;support@nishorama.com&gt; · previews from a real recent event (a recent event), personal details removed.</p>
+    <details class="logic"><summary>Flow logic: trigger, filters, splits and waits</summary><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Delivered Shipment</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WGqmfW-119312888"><span class="lbl">Email</span>P-D1 · Three things first (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>6 days</div><a class="fc-step fc-email" href="#e-WGqmfW-119312890"><span class="lbl">Email</span>P-D2 · One of the faces (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>14 days</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once since starting this flow</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-end">Exit</div></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><a class="fc-step fc-email" href="#e-WGqmfW-119312902"><span class="lbl">Email</span>P-D3a · Fit No. 2 (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><a class="fc-step fc-email" href="#e-WGqmfW-119312908"><span class="lbl">Email</span>P-D3b · Shortlisted (Repeat order)</a></div></div></div></div></div></details>
   </div>
-  <div class="flow-grid">
-    <div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Delivered Shipment</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Cancelled Order</b> since starting this flow</div><div class="sub">Has not done <b>Refunded Order</b> since starting this flow</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 day</div><a class="fc-step fc-email" href="#e-WGqmfW-119312888"><span class="lbl">Email</span>P-D1 · Three things first (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>6 days</div><a class="fc-step fc-email" href="#e-WGqmfW-119312890"><span class="lbl">Email</span>P-D2 · One of the faces (Everyone)</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>14 days</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> at least once since starting this flow</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><div class="fc-step fc-end">Exit</div></div><div class="fc-br"><div class="fc-yn">No</div><div class="fc-step fc-split"><span class="lbl">Split</span>Has done <b>Placed Order</b> exactly 1 time ever</div><div class="fc-branches"><div class="fc-br"><div class="fc-yn">Yes</div><a class="fc-step fc-email" href="#e-WGqmfW-119312902"><span class="lbl">Email</span>P-D3a · Fit No. 2 (First order)</a></div><div class="fc-br"><div class="fc-yn">No</div><a class="fc-step fc-email" href="#e-WGqmfW-119312908"><span class="lbl">Email</span>P-D3b · Shortlisted (Repeat order)</a></div></div></div></div></div>
-    <div class="mails">
+  <div class="mails">
 <article class="mail" id="e-WGqmfW-119312888">
   <div class="mail-head">
-    <div class="eyebrow">Everyone · sends 24 hours after trigger</div>
+    <div class="eyebrow">Everyone · 24 hours after trigger</div>
     <h4>P-D1 · Three things first (Everyone)</h4>
+    <div class="subj">It&#x27;s here. Read this before the first wash.</div>
+    <div class="prev">The colour, the wash and the fit, in 30 seconds.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312888_m.jpg" data-d="img/WGqmfW_119312888_d.jpg" src="img/WGqmfW_119312888_m.jpg" alt="Preview of P-D1 · Three things first (Everyone)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>It&#x27;s here. Read this before the first wash.</dd>
-        <dt>Preview text</dt><dd>The colour, the wash and the fit, in 30 seconds.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>Off</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>None. Static content only.</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>68 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312888_m.jpg" data-d="img/WGqmfW_119312888_d.jpg" src="img/WGqmfW_119312888_m.jpg" alt="Preview of P-D1 · Three things first (Everyone)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Static · Smart sending off · UTMs on · 68 KB</div></div>
 </article>
 <article class="mail" id="e-WGqmfW-119312890">
   <div class="mail-head">
-    <div class="eyebrow">Everyone · sends 7 days after trigger</div>
+    <div class="eyebrow">Everyone · 7 days after trigger</div>
     <h4>P-D2 · One of the faces (Everyone)</h4>
+    <div class="subj">Become one of the faces of Nishorama</div>
+    <div class="prev">Tag @nishorama. That&#x27;s how girls end up in our Spotted! highlight.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312890_m.jpg" data-d="img/WGqmfW_119312890_d.jpg" src="img/WGqmfW_119312890_m.jpg" alt="Preview of P-D2 · One of the faces (Everyone)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Become one of the faces of Nishorama</dd>
-        <dt>Preview text</dt><dd>Tag @nishorama. That&#x27;s how girls end up in our Spotted! highlight.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>None. Static content only.</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>36 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312890_m.jpg" data-d="img/WGqmfW_119312890_d.jpg" src="img/WGqmfW_119312890_m.jpg" alt="Preview of P-D2 · One of the faces (Everyone)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Static · Smart sending on · UTMs on · 36 KB</div></div>
 </article>
 <article class="mail" id="e-WGqmfW-119312902">
   <div class="mail-head">
-    <div class="eyebrow">Split no → Split yes · sends 21 days after trigger</div>
+    <div class="eyebrow">Split no → Split yes · 21 days after trigger</div>
     <h4>P-D3a · Fit No. 2 (First order)</h4>
+    <div class="subj">Fit No. 2</div>
+    <div class="prev">Picked to go with what you already own.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312902_m.jpg" data-d="img/WGqmfW_119312902_d.jpg" src="img/WGqmfW_119312902_m.jpg" alt="Preview of P-D3a · Fit No. 2 (First order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>Fit No. 2</dd>
-        <dt>Preview text</dt><dd>Picked to go with what you already own.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Product grid · feed <span class="mono">IN_RECS_INSTOCK</span> · Recommended from purchase history (falls back to best sellers), in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>54 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312902_m.jpg" data-d="img/WGqmfW_119312902_d.jpg" src="img/WGqmfW_119312902_m.jpg" alt="Preview of P-D3a · Fit No. 2 (First order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Live product grid · Smart sending on · UTMs on · 54 KB</div></div>
 </article>
 <article class="mail" id="e-WGqmfW-119312908">
   <div class="mail-head">
-    <div class="eyebrow">Split no → Split no · sends 21 days after trigger</div>
+    <div class="eyebrow">Split no → Split no · 21 days after trigger</div>
     <h4>P-D3b · Shortlisted (Repeat order)</h4>
+    <div class="subj">We shortlisted your next one</div>
+    <div class="prev">New pieces that fit what you already wear.</div>
   </div>
-  <div class="mail-body">
-    <div class="shot">
-      <div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div>
-      <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312908_m.jpg" data-d="img/WGqmfW_119312908_d.jpg" src="img/WGqmfW_119312908_m.jpg" alt="Preview of P-D3b · Shortlisted (Repeat order)"></div>
-    </div>
-    <div class="meta">
-      <dl>
-        <dt>Subject</dt><dd>We shortlisted your next one</dd>
-        <dt>Preview text</dt><dd>New pieces that fit what you already wear.</dd>
-        <dt>From</dt><dd>Nishorama · <span class="mono">support@nishorama.com</span></dd>
-        <dt>Smart sending</dt><dd>On</dd>
-        <dt>UTM tracking</dt><dd>On</dd>
-      </dl>
-      <div class="sublabel">Dynamic content</div>
-      <ul class="dyn"><li>Product grid · feed <span class="mono">IN_RECS_INSTOCK</span> · Recommended from purchase history (falls back to best sellers), in stock only</li></ul>
-      <div class="sublabel">Checks</div>
-      <ul class="checks"><li class="ok"><span>Size</span><span>56 KB</span></li><li class="ok"><span>Images</span><span>All load</span></li><li class="ok"><span>Merge tags</span><span>All filled</span></li><li class="ok"><span>Em dashes</span><span>None</span></li><li class="ok"><span>Unsubscribe</span><span>Present</span></li><li class="ok"><span>Product grid</span><span>4/4 in-stock items</span></li></ul>
-    </div>
-  </div>
+  <div class="frame"><img loading="lazy" data-m="img/WGqmfW_119312908_m.jpg" data-d="img/WGqmfW_119312908_d.jpg" src="img/WGqmfW_119312908_m.jpg" alt="Preview of P-D3b · Shortlisted (Repeat order)"></div>
+  <div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Live product grid · Smart sending on · UTMs on · 56 KB</div></div>
 </article></div>
-  </div>
 </section>
 <section class="notes"><div class="eyebrow">Notes</div><ul>
 <li><b>Sample data.</b> Each flow is rendered with one real, recent trigger event. Names, emails, addresses and checkout links are stripped.</li>
@@ -1044,5 +543,5 @@ dd{margin:0;word-break:break-word}
 </ul></section>
 </main>
 <footer class="foot"><div class="wrap footin"><div><div class="eyebrow g">Sources</div><p>Klaviyo API (flow definitions, templates, events) and Klaviyo preview (product feeds). Pulled 5 Oct 2026.</p></div><span class="mark inv"><span class="sq"></span><span class="wm">Grovae</span></span></div></footer>
-<script>document.querySelectorAll('.shot').forEach(s=>{const img=s.querySelector('img');s.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{s.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));img.src=img.dataset[b.dataset.v];s.classList.toggle('desk',b.dataset.v==='d');});});</script>
+<script>document.querySelectorAll('.viewbar .tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.viewbar .tabs button').forEach(x=>x.classList.toggle('on',x===b));document.body.classList.toggle('desk',b.dataset.v==='d');document.querySelectorAll('.mail img').forEach(i=>i.src=i.dataset[b.dataset.v]);});</script>
 </body></html>

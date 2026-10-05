@@ -45,7 +45,7 @@ body{background:var(--bg);color:var(--ink-1);font-family:var(--sans);font-size:1
 .tier .on{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
 
 .days{border:1px solid var(--border);margin-top:28px}
-.days>div{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:18px 22px}
+.days>div{display:grid;grid-template-columns:190px 1fr;gap:20px;align-items:baseline;padding:18px 22px}
 .days>div+div{border-top:1px solid var(--border)}
 .days .c{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
 .days .n{font-size:14px;color:var(--ink-2);margin-top:4px}
@@ -72,6 +72,19 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
   .offer .head .label:last-child{display:none}
   .big .s{display:block;margin-top:8px}
 }
+.deals{margin-top:8px}
+.deal{background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+.deal .when{display:flex;justify-content:space-between;gap:16px;padding:14px 28px;border-bottom:1px solid var(--border)}
+.deal .what{padding:26px 28px}
+.deal h3{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.deal p{color:var(--ink-2);margin-top:8px;font-size:15.5px}
+.deal .tiers{margin-top:20px}
+.deal.hl{border-color:var(--tint-border)}
+.deal.hl .when{background:var(--tint);border-bottom-color:var(--tint-border)}
+.sec{margin:36px 0 14px}
+.sec h2{font-size:26px;font-weight:600;letter-spacing:-.03em;margin-top:8px}
+.sec p{color:var(--ink-2);margin-top:6px}
+@media (max-width:720px){.deal .when,.deal .what{padding-left:20px;padding-right:20px}.deal h3{font-size:24px}}
 </style>
 </head>
 <body>
@@ -83,52 +96,67 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
 <div class="wrap">
   <div class="hero">
     <div class="label">Proposed offers · 22–26 Oct · India and Global</div>
-    <h1>Three offers that stack.</h1>
-    <p>Each one is set up once in Shopify and runs automatically through the sale.</p>
+    <h1>One sale. One deal at a time.</h1>
+    <p>Up to 50% off runs all week. On top of it, one extra deal each day, so every send has a new reason to buy.</p>
   </div>
 
   <div class="offer">
-    <div class="head"><span class="label">Offer 1 · All 5 days</span><span class="label">Sitewide</span></div>
+    <div class="head"><span class="label">All week · 22–26 Oct</span><span class="label">Sitewide</span></div>
     <div class="body">
       <div class="big">Up to 50% off</div>
-      <div class="sub">Your pricing, product by product. Offers 2 and 3 sit on top.</div>
+      <div class="sub">Your pricing, product by product.</div>
     </div>
   </div>
 
-  <div class="offer">
-    <div class="head"><span class="label">Offer 2 · All 5 days</span><span class="label">Spend more, save more</span></div>
-    <div class="body">
-      <div class="tiers">
-        <div>
-          <div class="label">India</div>
-          <div class="tier"><span class="amt">₹300 off</span><span class="on">above ₹2,999</span></div>
-          <div class="tier"><span class="amt">₹450 off</span><span class="on">above ₹3,999</span></div>
-          <div class="tier"><span class="amt">₹600 off</span><span class="on">above ₹4,999</span></div>
-        </div>
-        <div>
-          <div class="label">Global</div>
-          <div class="tier"><span class="amt">$20 off</span><span class="on">above $150</span></div>
-          <div class="tier"><span class="amt">$30 off</span><span class="on">above $200</span></div>
-          <div class="tier"><span class="amt">$40 off</span><span class="on">above $250</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="why"><span class="label">Why</span><span>Last Black Friday, flat codes dropped AOV from ₹2,050 to ₹1,700. Tiers reward one more piece instead. Global ships free, so bigger baskets protect margin.</span></div>
+  <div class="sec">
+    <div class="label">On top of the sale</div>
+    <h2>The daily deals</h2>
+    <p>Only one deal is live at a time. Each one switches on and off automatically.</p>
   </div>
 
-  <div class="offer">
-    <div class="head"><span class="label">Offer 3 · One collection a day</span><span class="label">Deal of the day</span></div>
-    <div class="body">
-      <div class="big">Extra 15% off <span class="s">for 24 hours</span></div>
-      <div class="days">
-        <div><div class="label">Thu 22 Oct</div><div><div class="c">Early access</div><div class="n">VIPs and the waitlist shop first. No deal.</div></div></div>
-        <div><div class="label">Fri 23 Oct</div><div><div class="c">Short kurtis · extra 15% off</div></div></div>
-        <div><div class="label">Sat 24 Oct</div><div><div class="c">Bottoms · extra 15% off</div></div></div>
-        <div><div class="label">Sun 25 Oct</div><div><div class="c">NishoMen + shirts · extra 15% off</div><div class="n">Global: tops</div></div></div>
-        <div class="hl"><div class="label">Mon 26 Oct · Last day</div><div><div class="c">Sitewide code for 24 hours</div><div class="n">First-time buyers / NishoCrew. Pick whichever your margins allow:</div><div class="opts"><span><em>Option A</em>15% / 12%</span><span><em>Option B</em>17% / 13%</span></div></div></div>
-      </div>
+  <div class="deals">
+    <div class="deal">
+      <div class="when"><span class="label">Thu 22 Oct</span><span class="label">Early access</span></div>
+      <div class="what"><h3>VIPs and the waitlist shop first</h3><p>24 hours before everyone else, at sale prices. First pick of sizes is the perk.</p></div>
     </div>
-    <div class="why"><span class="label">Why</span><span>Only overstocked collections go on deal. The last day gets a sitewide code instead, each version sent only to its own audience. Last Black Friday the final day was the second-biggest (₹43.7L).</span></div>
+
+    <div class="deal">
+      <div class="when"><span class="label">Fri 23 – Sat 24 Oct · 2 days</span><span class="label">Spend more, save more</span></div>
+      <div class="what">
+        <h3>The bigger the bag, the more you save</h3>
+        <p>Opens with the sale, when traffic is highest, to lift basket size from day one.</p>
+        <div class="tiers">
+          <div>
+            <div class="label">India</div>
+            <div class="tier"><span class="amt">₹300 off</span><span class="on">above ₹2,999</span></div>
+            <div class="tier"><span class="amt">₹450 off</span><span class="on">above ₹3,999</span></div>
+            <div class="tier"><span class="amt">₹600 off</span><span class="on">above ₹4,999</span></div>
+          </div>
+          <div>
+            <div class="label">Global</div>
+            <div class="tier"><span class="amt">$20 off</span><span class="on">above $150</span></div>
+            <div class="tier"><span class="amt">$30 off</span><span class="on">above $200</span></div>
+            <div class="tier"><span class="amt">$40 off</span><span class="on">above $250</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="why"><span class="label">Why</span><span>Last Black Friday, flat codes dropped AOV from ₹2,050 to ₹1,700. Tiers reward one more piece instead, and Global ships free, so bigger baskets protect margin.</span></div>
+    </div>
+
+    <div class="deal">
+      <div class="when"><span class="label">Sun 25 Oct · 24 hours</span><span class="label">Collection deal</span></div>
+      <div class="what"><h3>Extra 15% off short kurtis and bottoms</h3><p>A kurti plus a bottom is a full look, and both have 6+ months of stock.</p></div>
+    </div>
+
+    <div class="deal hl">
+      <div class="when"><span class="label">Mon 26 Oct · Last day</span><span class="label">Sitewide code</span></div>
+      <div class="what">
+        <h3>A code just for you, sitewide</h3>
+        <p>First-time buyers and NishoCrew (repeat buyers) each get their own code, sent only to them. Pick whichever your margins allow:</p>
+        <div class="opts"><span><em>Option A</em>15% new / 12% NishoCrew</span><span><em>Option B</em>17% new / 13% NishoCrew</span></div>
+      </div>
+      <div class="why"><span class="label">Why</span><span>Last Black Friday the final day was the second-biggest of the sale (₹43.7L). A personal code gives fence-sitters the last push.</span></div>
+    </div>
   </div>
 </div>
 
@@ -136,9 +164,9 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
   <div class="label">To lock the sale</div>
   <h2>What we need from you</h2>
   <ol>
-    <li>Margins hold on the deepest stack: up to 50% + extra 15% + top spend tier.</li>
     <li>Last-day code: Option A (15% / 12%) or Option B (17% / 13%).</li>
-    <li>Enough stock in the three deal collections.</li>
+    <li>Margins hold on each deal on top of up to 50% off.</li>
+    <li>Enough stock in short kurtis and bottoms for Sunday.</li>
     <li>Global opens a day earlier (21 Oct) so orders reach before Diwali.</li>
     <li>Diwali collection launches 30 Oct, after the sale, at full price.</li>
     <li>Sale and waitlist landing pages by 15 Oct.</li>

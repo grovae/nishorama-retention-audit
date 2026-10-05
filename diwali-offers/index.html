@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diwali sale offers · Nishorama</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
+:root{
+  --ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;
+  --bg-page:#F4F5F5;--surface:#FFFFFF;--surface-sunken:#ECEEEE;--surface-ink:#101213;
+  --border-1:#DCDEDE;--border-2:#C6C9C9;
+  --green-800:#143C30;--green-700:#1B4D3E;--green-600:#2F6A57;--green-400:#5C9083;--green-200:#A8C4BC;--green-100:#D5E2DE;--green-50:#EAF1EE;
+  --warn:#8F6A1E;--warn-bg:#F4EBD7;
+  --tint-green:rgba(27,77,62,.06);--tint-border-green:rgba(27,77,62,.22);
+  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-page);color:var(--ink-1);font-family:var(--font-sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+.label{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.label.g{color:var(--green-700)}
+header.top{border-bottom:1px solid var(--border-1);background:var(--surface)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.mark{display:inline-flex;align-items:center;gap:10px}
+.mark i{width:12px;height:12px;background:var(--green-700);display:block}
+.mark b{font-weight:700;font-size:17px;letter-spacing:-.04em}
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--border-1)}
+.hero h1{font-size:44px;font-weight:600;letter-spacing:-.045em;line-height:1.05;margin:14px 0 16px;max-width:640px}
+.hero p{color:var(--ink-2);max-width:600px;font-size:16px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-1);background:var(--surface);margin-top:36px}
+.strip>div{padding:20px;border-left:1px solid var(--border-1)}
+.strip>div:first-child{border-left:0}
+.num{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.num.g{color:var(--green-700)}
+.strip .label{margin-top:8px;display:block;line-height:1.5}
+section{padding:48px 0;border-bottom:1px solid var(--border-1)}
+h2{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.2;margin:10px 0 8px}
+.lead{color:var(--ink-2);max-width:640px}
+.layers{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-1);background:var(--surface);margin-top:24px}
+.layers>div{padding:22px;border-left:1px solid var(--border-1)}
+.layers>div:first-child{border-left:0}
+.layers h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin:8px 0 6px}
+.layers p{font-size:14px;color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.card{background:var(--surface);border:1px solid var(--border-1);padding:24px}
+.card h3{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;justify-content:space-between;align-items:baseline}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:8px 0;border-bottom:1px solid var(--border-1)}
+td{padding:11px 0;border-bottom:1px solid var(--border-1)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+td.big{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.why{margin-top:24px;background:var(--tint-green);border:1px solid var(--tint-border-green);padding:22px 24px}
+.why ul{list-style:none;margin-top:10px}
+.why li{padding:6px 0 6px 18px;position:relative;font-size:14.5px}
+.why li:before{content:"→";position:absolute;left:0;color:var(--green-700)}
+.bars{margin-top:6px}
+.bar{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;padding:7px 0;font-size:14px}
+.bar .track{height:14px;background:var(--surface-sunken)}
+.bar .fill{height:14px}
+.bar .v{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);text-align:right}
+.legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.legend i{width:10px;height:10px;display:block}
+.days{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--border-1);background:var(--surface);margin-top:24px}
+.days>div{padding:18px;border-left:1px solid var(--border-1);min-height:150px}
+.days>div:first-child{border-left:0}
+.days .d{font-size:20px;font-weight:600;letter-spacing:-.03em;margin:6px 0 10px}
+.days .what{font-size:14px;font-weight:600}
+.days .sub{font-size:13px;color:var(--ink-2);margin-top:4px}
+.days .last{background:var(--tint-green)}
+.timeline{margin-top:24px;border:1px solid var(--border-1);background:var(--surface)}
+.timeline>div{display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--border-1);padding:14px 20px;gap:16px}
+.timeline>div:first-child{border-top:0}
+.timeline .when{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);padding-top:2px}
+.timeline .t{font-weight:600;font-size:14.5px}
+.timeline .s{font-size:13.5px;color:var(--ink-2)}
+.steps{counter-reset:s;margin-top:20px;border:1px solid var(--border-1);background:var(--surface)}
+.steps>div{display:grid;grid-template-columns:44px 1fr;padding:16px 20px;border-top:1px solid var(--border-1);gap:8px}
+.steps>div:first-child{border-top:0}
+.steps>div:before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--font-mono);font-size:12px;color:var(--green-700);padding-top:2px}
+.steps b{font-weight:600}
+.steps p{font-size:14px;color:var(--ink-2)}
+.ask{background:var(--surface-ink);color:#F4F5F5;padding:44px 0}
+.ask .label{color:var(--green-400)}
+.ask h2{color:#F4F5F5}
+.ask ol{margin:18px 0 0 20px;color:#D9DBDB}
+.ask li{padding:6px 0;font-size:15px}
+footer{padding:22px 0 40px;color:var(--ink-3);font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:760px){
+  .hero h1{font-size:32px}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip>div:nth-child(3){border-left:0}
+  .strip>div:nth-child(n+3){border-top:1px solid var(--border-1)}
+  .layers,.grid2{grid-template-columns:1fr}
+  .layers>div{border-left:0;border-top:1px solid var(--border-1)}
+  .layers>div:first-child{border-top:0}
+  .days{grid-template-columns:1fr}
+  .days>div{border-left:0;border-top:1px solid var(--border-1);min-height:0}
+  .days>div:first-child{border-top:0}
+  .timeline>div{grid-template-columns:1fr;gap:2px}
+  .bar{grid-template-columns:92px 1fr 56px}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <span class="label">Nishorama · Diwali sale 2026</span>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="label">Proposed offers · Sale 22–26 Oct · India and Global</div>
+    <h1>Diwali sale offers. Bigger baskets, not just deeper discounts.</h1>
+    <p>Three layers that stack. Each one is set up once in Shopify before the sale and runs on its own schedule. Every choice below is backed by your last sale, your order data and your current stock.</p>
+    <div class="strip">
+      <div><div class="num">₹2,023</div><span class="label">India AOV · 1.4 pieces per order</span></div>
+      <div><div class="num">$98</div><span class="label">Global AOV · free shipping on 97% of orders</span></div>
+      <div><div class="num g">₹1,700</div><span class="label">AOV in Black Friday 2025 · flat codes on 77% of orders</span></div>
+      <div><div class="num">31 wks</div><span class="label">Short kurti stock cover · 24k units</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="label">The plan at a glance</div>
+    <h2>Three layers, one sale</h2>
+    <div class="layers">
+      <div><div class="label g">Layer 1 · All 5 days</div><h3>Up to 50% off sitewide</h3><p>Depth set by stock. Slow movers go deepest, bestsellers stay shallow.</p></div>
+      <div><div class="label g">Layer 2 · All 5 days</div><h3>Spend more, save more</h3><p>Three spend tiers that give money off. Built to lift basket size.</p></div>
+      <div><div class="label g">Layer 3 · One collection a day</div><h3>Deal of the day</h3><p>An extra 15% off one collection for 24 hours. A new reason to come back daily.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Layer 1 · Sale prices</div>
+    <h2>Discount depth follows your stock</h2>
+    <p class="lead">Weeks of cover is how long current stock lasts at today's sales pace (India, last 60 days). The more weeks of cover, the deeper the discount.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>Weeks of stock cover <span class="label">India · last 60 days</span></h3>
+        <div class="bars">
+          <div class="bar"><span>Shirts</span><div class="track"><div class="fill" style="width:100%;background:var(--green-700)"></div></div><span class="v">73</span></div>
+          <div class="bar"><span>NishoMen</span><div class="track"><div class="fill" style="width:66%;background:var(--green-700)"></div></div><span class="v">48</span></div>
+          <div class="bar"><span>Short kurtis</span><div class="track"><div class="fill" style="width:42%;background:var(--green-700)"></div></div><span class="v">31</span></div>
+          <div class="bar"><span>Tops</span><div class="track"><div class="fill" style="width:37%;background:var(--green-700)"></div></div><span class="v">27</span></div>
+          <div class="bar"><span>Bottoms</span><div class="track"><div class="fill" style="width:37%;background:var(--green-700)"></div></div><span class="v">27</span></div>
+          <div class="bar"><span>Long kurtis</span><div class="track"><div class="fill" style="width:23%;background:var(--green-200)"></div></div><span class="v">17</span></div>
+          <div class="bar"><span>Sets</span><div class="track"><div class="fill" style="width:21%;background:var(--green-200)"></div></div><span class="v">15</span></div>
+          <div class="bar"><span>Dresses</span><div class="track"><div class="fill" style="width:15%;background:var(--green-200)"></div></div><span class="v">11</span></div>
+        </div>
+        <div class="legend"><span><i style="background:var(--green-700)"></i>Overstocked</span><span><i style="background:var(--green-200)"></i>Selling fast</span></div>
+      </div>
+      <div class="card">
+        <h3>Proposed depth <span class="label">Both markets</span></h3>
+        <table>
+          <tr><th>Group</th><th class="r">Off</th></tr>
+          <tr><td>Slow movers<br><span style="color:var(--ink-2);font-size:13px">Shirts, NishoMen, short kurtis, tops, bottoms</span></td><td class="r big">40–50%</td></tr>
+          <tr><td>Core range</td><td class="r big">30%</td></tr>
+          <tr><td>Bestsellers<br><span style="color:var(--ink-2);font-size:13px">Sets, dresses, long kurtis</span></td><td class="r big">20%</td></tr>
+          <tr><td>Diwali collection</td><td class="r" style="color:var(--ink-2)">Full price</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="why">
+      <div class="label g">Why</div>
+      <ul>
+        <li>Sets alone drove ₹97L in the last 60 days with only 15 weeks of cover. Deep discounts there give away margin on stock that sells anyway.</li>
+        <li>Shirts, NishoMen, short kurtis, tops and bottoms hold over 6 months of stock between them. That's where 50% clears inventory you need to move.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Layer 2 · Spend more, save more</div>
+    <h2>Small steps, each one piece away</h2>
+    <p class="lead">Money off when the basket crosses a threshold, on top of sale prices. It applies automatically at checkout, with no code to remember.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>India <span class="label">₹</span></h3>
+        <table>
+          <tr><th>Spend</th><th class="r">You save</th><th class="r">Orders this big today</th></tr>
+          <tr><td>₹2,999+</td><td class="r big">₹300</td><td class="r" style="color:var(--ink-2)">14%</td></tr>
+          <tr><td>₹3,999+</td><td class="r big">₹450</td><td class="r" style="color:var(--ink-2)">7%</td></tr>
+          <tr><td>₹4,999+</td><td class="r big">₹600</td><td class="r" style="color:var(--ink-2)">4%</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Global <span class="label">$</span></h3>
+        <table>
+          <tr><th>Spend</th><th class="r">You save</th><th class="r">Orders this big today</th></tr>
+          <tr><td>$150+</td><td class="r big">$20</td><td class="r" style="color:var(--ink-2)">16%</td></tr>
+          <tr><td>$200+</td><td class="r big">$30</td><td class="r" style="color:var(--ink-2)">7%</td></tr>
+          <tr><td>$250+</td><td class="r big">$40</td><td class="r" style="color:var(--ink-2)">3%</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="why">
+      <div class="label g">Why</div>
+      <ul>
+        <li>Last Black Friday, flat codes with no minimum were used on 77% of orders and AOV dropped from about ₹2,050 to ₹1,700. Thresholds reward bigger baskets instead.</li>
+        <li>India's first tier matches today's automatic 10% over ₹2,599, so no sale shopper gets less than on a normal day. That automatic 10% switches off during the sale.</li>
+        <li>India orders average 1.4 pieces. A set plus one sale kurti crosses ₹2,999, so each tier is roughly one more piece.</li>
+        <li>Global ships free on almost every order, so a bigger basket protects margin. Your $35 off $200 idea sits right inside this range.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Layer 3 · Deal of the day</div>
+    <h2>Extra 15% off one collection, every day</h2>
+    <p class="lead">Same 15% every day, so it's easy to understand. Only the collection changes. Every deal comes back on the last day.</p>
+    <div class="days">
+      <div><div class="label">Thu 22 Oct</div><div class="d">Early access</div><div class="what">No deal</div><div class="sub">Repeat buyers, VIPs and the waitlist get first pick of sizes</div></div>
+      <div><div class="label">Fri 23 Oct · Day 1</div><div class="d">Short kurtis</div><div class="what">Extra 15% off</div><div class="sub">Your biggest category, 24k units in stock</div></div>
+      <div><div class="label">Sat 24 Oct · Day 2</div><div class="d">Bottoms</div><div class="what">Extra 15% off</div><div class="sub">Overstocked, and pairs with day 1's kurtis</div></div>
+      <div><div class="label">Sun 25 Oct · Day 3</div><div class="d">NishoMen + shirts</div><div class="what">Extra 15% off</div><div class="sub">India: match for the family photo. Global: tops.</div></div>
+      <div class="last"><div class="label g">Mon 26 Oct · Last day</div><div class="d">All deals back</div><div class="what">Final 24 hours</div><div class="sub">Every deal-of-the-day collection, one last time</div></div>
+    </div>
+    <div class="why">
+      <div class="label g">Why</div>
+      <ul>
+        <li>Only overstocked collections go on deal. Sets and dresses never do: they're your bestsellers and they're what gets baskets over the spend tiers.</li>
+        <li>Last Black Friday, the last day was the second-biggest of the five (₹43.7L after ₹63.5L on day 1). Bringing every deal back gives that last day a real hook.</li>
+        <li>Global day 3 is tops instead of NishoMen, because men's sales there are still too small to lead a day.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Run-up and sale</div>
+    <h2>Build the waitlist first, then open the sale</h2>
+    <div class="timeline">
+      <div><span class="when">By 14 Oct</span><div><div class="t">Waitlist page goes live</div><div class="s">A private signup page linked from your Navratri reels and ads. Waitlist members get early access.</div></div></div>
+      <div><span class="when">15, 19, 21 Oct</span><div><div class="t">Three teasers on email and WhatsApp</div><div class="s">Waitlist is open · up to 50% and how spend more, save more works · tomorrow, waitlist first</div></div></div>
+      <div><span class="when">22 Oct</span><div><div class="t">Early access</div><div class="s">Repeat buyers, VIPs and the waitlist, 24 hours before everyone else</div></div></div>
+      <div><span class="when">23–26 Oct</span><div><div class="t">Sale live with a daily deal</div><div class="s">One send a day around the deal of the day, with a WhatsApp reminder on the last evening</div></div></div>
+      <div><span class="when">30 Oct</span><div><div class="t">Diwali collection launch at full price</div><div class="s">After the sale, so new pieces never sit next to 50% off</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Setup in Shopify</div>
+    <h2>Set up once, nothing to change during the sale</h2>
+    <div class="steps">
+      <div><div><b>Sale prices</b><p>Compare-at prices set once by collection before 22 Oct.</p></div></div>
+      <div><div><b>Spend tiers</b><p>Three automatic "amount off order" discounts, each with a minimum spend, scheduled for 22–26 Oct. Shopify applies the biggest one the basket qualifies for.</p></div></div>
+      <div><div><b>Deal of the day</b><p>Four automatic "15% off collection" discounts, made in advance and scheduled to switch on and off at midnight. Nobody edits prices during the sale.</p></div></div>
+      <div><div><b>One test before launch</b><p>We confirm the automatic discounts show correctly in the India checkout. If they don't, we switch to codes.</p></div></div>
+    </div>
+  </section>
+</div>
+
+<div class="ask"><div class="wrap">
+  <div class="label">What we need from you</div>
+  <h2>Five decisions to lock the sale</h2>
+  <ol>
+    <li>Margins hold on the deepest stack: a 50% item, plus the daily 15%, plus the top spend tier.</li>
+    <li>Enough stock in short kurtis, bottoms, NishoMen and shirts for their deal days.</li>
+    <li>Diwali collection launch on Fri 30 Oct.</li>
+    <li>Global sale dates. With 6–10 business days shipping, we'd open Global a day earlier so orders reach before Diwali on 8 Nov.</li>
+    <li>Sale and waitlist landing pages by 15 Oct.</li>
+  </ol>
+</div></div>
+
+<div class="wrap"><footer>Prepared by Grovae for Nishorama · 5 Oct 2026 · Data: Shopify orders and stock, India and Global</footer></div>
+</body>
+</html>

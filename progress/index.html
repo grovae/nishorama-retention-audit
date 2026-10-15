@@ -91,6 +91,21 @@ section .wrap{padding-top:72px;padding-bottom:72px}
 .note{margin-top:20px;font-size:14px;color:var(--ink-3);line-height:1.55}
 .note b{color:var(--ink-2);font-weight:500}
 
+
+/* compare */
+.cmp{background:var(--surface);border:1px solid var(--border-1)}
+.cmp-row{display:grid;grid-template-columns:1fr 200px 200px;align-items:center;border-top:1px solid var(--border-1)}
+.cmp-row:first-child{border-top:0}
+.cmp-row > span{padding:16px 24px}
+.cmp-row > span + span{border-left:1px solid var(--border-1)}
+.cmp-head{background:var(--surface-sunken)}
+.cmp-head .label{display:block}
+.cmp-head .h{display:block;font-size:13px;color:var(--ink-2);margin-top:4px}
+.cmp .k{font-size:16px}
+.cmp .b{font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-3)}
+.cmp .a{font-size:22px;font-weight:600;letter-spacing:-.03em}
+.cmp .a.lead{color:var(--green-700)}
+
 /* placeholder */
 .placeholder{border:1px dashed var(--border-2);padding:48px 24px;text-align:center;background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(16,18,19,.025) 10px 20px)}
 .placeholder p{color:var(--ink-2);font-size:16px;margin-top:8px}
@@ -130,6 +145,10 @@ footer .label{color:var(--green-400)}
   .step .when{border-right:0;border-bottom:1px solid var(--border-1);padding-bottom:12px}
   .step .what li{grid-template-columns:1fr;gap:0}
   .row{grid-template-columns:1fr}
+  .cmp-row{grid-template-columns:1fr 92px 92px}
+  .cmp-row > span{padding:12px}
+  .cmp .b,.cmp .a{font-size:17px}
+  .cmp .k{font-size:14px}
   .chips{justify-content:flex-start}
   .row > .badge{justify-self:start}
 }
@@ -149,7 +168,7 @@ footer .label{color:var(--green-400)}
   <p>What we've built, what it has brought in, and what happens over the next two weeks.</p>
   <div class="meta">
     <span class="label">Period · 28 Sep – 14 Oct 2026 (first 17 days)</span>
-    <span class="label">Source · Klaviyo, Shopify</span>
+    <span class="label">Source · Klaviyo, Bitespeed, Shopify</span>
   </div>
 </div></div>
 
@@ -252,12 +271,39 @@ footer .label{color:var(--green-400)}
 <section><div class="wrap">
   <div class="sec-head">
     <div class="num">04 · WhatsApp · India</div>
-    <h2>WhatsApp via Bitespeed</h2>
+    <h2>One launch day out-earned three months of broadcasts</h2>
+    <p>WhatsApp ran on Bitespeed before we started, so this is a straight before-and-after. We rebuilt the audiences and launched NishOtsav on 30 Sep as three broadcasts: NishoCrew, one-time buyers and subscribers who haven't bought.</p>
   </div>
-  <div class="placeholder">
-    <div class="label">Numbers being added</div>
-    <p>Bitespeed campaign and automation results for the same period.</p>
+
+  <div class="market">
+    <div class="market-head"><h3>Broadcasts</h3><span class="label">As reported by Bitespeed</span></div>
+    <div class="cmp">
+      <div class="cmp-row cmp-head"><span></span><span><span class="label">Before</span><span class="h">May–Aug · 10 sends</span></span><span><span class="label">NishOtsav</span><span class="h">30 Sep · 3 sends</span></span></div>
+      <div class="cmp-row"><span class="k">Revenue</span><span class="b">₹81.5k</span><span class="a lead">₹1.77L</span></div>
+      <div class="cmp-row"><span class="k">Revenue per broadcast</span><span class="b">₹8.2k</span><span class="a">₹59.0k</span></div>
+      <div class="cmp-row"><span class="k">Return on send cost</span><span class="b">2.8x</span><span class="a">12.0x</span></div>
+      <div class="cmp-row"><span class="k">Messages delivered</span><span class="b">53%</span><span class="a">80%</span></div>
+      <div class="cmp-row"><span class="k">Orders</span><span class="b">39</span><span class="a">88</span></div>
+    </div>
   </div>
+
+  <div class="market">
+    <div class="market-head"><h3>Journeys we added</h3><span class="label">Added in October · ₹1.75L · 81 orders</span></div>
+    <div class="bars">
+      <div class="bar" data-tip="Checkout recovery · new shoppers · 26 orders · ₹56,803"><span class="n">Checkout · new shoppers</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">₹56.8k</span></div>
+      <div class="bar" data-tip="Welcome · 22 orders · ₹52,539"><span class="n">Welcome</span><div class="track"><div class="fill" style="width:92.5%"></div></div><span class="val">₹52.5k</span></div>
+      <div class="bar" data-tip="Browse recovery · new shoppers · 17 orders · ₹35,918"><span class="n">Browse · new shoppers</span><div class="track"><div class="fill" style="width:63.2%"></div></div><span class="val">₹35.9k</span></div>
+      <div class="bar" data-tip="Checkout recovery · past buyers · 9 orders · ₹18,152"><span class="n">Checkout · past buyers</span><div class="track"><div class="fill" style="width:32%"></div></div><span class="val">₹18.2k</span></div>
+      <div class="bar" data-tip="Browse recovery · past buyers · 7 orders · ₹11,903"><span class="n">Browse · past buyers</span><div class="track"><div class="fill" style="width:21%"></div></div><span class="val">₹11.9k</span></div>
+    </div>
+    <p class="note">New shoppers and past buyers get different messages. Nearly half of every message gets read (46–49%).</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">India retention, email + WhatsApp</div>
+    <p><b style="font-weight:600">₹6.3L</b> in the first 17 days: ₹2.80L from email, ₹1.77L from WhatsApp broadcasts and ₹1.75L from the new WhatsApp journeys.</p>
+  </div>
+  <p class="note">Each platform reports with its own attribution, so an order that touched both email and WhatsApp can appear in both.</p>
 </div></section>
 
 <!-- 05 EMAIL HEALTH -->

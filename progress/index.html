@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nishorama · Retention progress</title>
+<meta name="robots" content="noindex">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
+:root{
+  --ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;
+  --bg-page:#F4F5F5;--surface:#FFFFFF;--surface-sunken:#ECEEEE;--surface-ink:#101213;
+  --border-1:#DCDEDE;--border-2:#C6C9C9;
+  --green-800:#143C30;--green-700:#1B4D3E;--green-600:#2F6A57;--green-400:#5C9083;--green-200:#A8C4BC;--green-100:#D5E2DE;--green-50:#EAF1EE;
+  --success:#1B4D3E;--success-bg:#EAF1EE;--warn:#8F6A1E;--warn-bg:#F4EBD7;
+  --tint-green:rgba(27,77,62,.06);--tint-border-green:rgba(27,77,62,.22);
+  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-page);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 32px}
+.label{font-family:var(--font-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.label.accent{color:var(--green-700)}
+
+/* top bar */
+.top{border-bottom:1px solid var(--border-1);background:var(--surface)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.mark{display:inline-flex;align-items:center;gap:10px}
+.mark i{width:12px;height:12px;background:var(--green-700);display:block}
+.mark b{font-weight:700;font-size:18px;letter-spacing:-.04em}
+
+/* hero */
+.hero{background:var(--surface);border-bottom:1px solid var(--border-1)}
+.hero .wrap{padding-top:72px;padding-bottom:64px}
+.hero h1{font-size:48px;line-height:1.05;letter-spacing:-.045em;font-weight:600;margin:16px 0 20px;max-width:760px}
+.hero p{font-size:19px;color:var(--ink-2);max-width:640px;line-height:1.5}
+.hero .meta{margin-top:32px;display:flex;flex-wrap:wrap;gap:8px 24px}
+
+/* sections */
+section{border-bottom:1px solid var(--border-1)}
+section .wrap{padding-top:72px;padding-bottom:72px}
+.sec-head{margin-bottom:36px}
+.sec-head .num{font-family:var(--font-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.sec-head h2{font-size:32px;line-height:1.15;letter-spacing:-.035em;font-weight:600;margin-top:10px}
+.sec-head p{margin-top:12px;color:var(--ink-2);font-size:17px;max-width:680px}
+
+/* market block */
+.market{margin-bottom:40px}
+.market:last-child{margin-bottom:0}
+.market-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.market-head h3{font-size:20px;font-weight:600;letter-spacing:-.03em}
+
+/* metric strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--border-1)}
+.stat{padding:24px 24px 22px;border-left:1px solid var(--border-1);display:flex;flex-direction:column;gap:10px}
+.stat:first-child{border-left:0}
+.stat .v{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat .v.lead{color:var(--green-700);font-size:40px}
+.stat .s{font-size:13px;color:var(--ink-2);line-height:1.4}
+
+/* list rows */
+.rows{background:var(--surface);border:1px solid var(--border-1)}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 24px;border-top:1px solid var(--border-1)}
+.row:first-child{border-top:0}
+.row .t{font-size:16px;font-weight:500}
+.row .d{font-size:14px;color:var(--ink-2);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:2px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.badge.ok{background:var(--success-bg);color:var(--success)}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}
+.badge.neutral{background:var(--surface-sunken);color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.chip{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--border-1);border-radius:2px;color:var(--ink-2);background:var(--surface)}
+
+/* bars */
+.bars{background:var(--surface);border:1px solid var(--border-1);padding:12px 24px 8px}
+.bar{display:grid;grid-template-columns:200px 1fr 96px;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--border-1);position:relative}
+.bar:first-child{border-top:0}
+.bar .n{font-size:15px}
+.bar .track{height:14px;position:relative}
+.bar .fill{height:14px;background:var(--green-700);border-radius:0 4px 4px 0;min-width:3px}
+.bar.muted .fill{background:var(--green-200)}
+.bar .val{font-family:var(--font-mono);font-size:13px;text-align:right;color:var(--ink-1)}
+.bar:hover{background:var(--surface-sunken)}
+.tip{position:fixed;pointer-events:none;background:var(--surface-ink);color:#F4F5F5;font-family:var(--font-mono);font-size:12px;padding:8px 10px;border-radius:2px;opacity:0;transition:opacity 150ms ease-out;z-index:10;max-width:260px;line-height:1.5}
+
+.callout{background:var(--tint-green);border:1px solid var(--tint-border-green);padding:24px;margin-top:24px}
+.callout .label{color:var(--green-700);margin-bottom:8px}
+.callout p{font-size:17px;line-height:1.55}
+.note{margin-top:20px;font-size:14px;color:var(--ink-3);line-height:1.55}
+.note b{color:var(--ink-2);font-weight:500}
+
+/* placeholder */
+.placeholder{border:1px dashed var(--border-2);padding:48px 24px;text-align:center;background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(16,18,19,.025) 10px 20px)}
+.placeholder p{color:var(--ink-2);font-size:16px;margin-top:8px}
+
+/* timeline */
+.tl{background:var(--surface);border:1px solid var(--border-1)}
+.step{display:grid;grid-template-columns:168px 1fr;border-top:1px solid var(--border-1)}
+.step:first-child{border-top:0}
+.step .when{padding:24px;border-right:1px solid var(--border-1)}
+.step .when .date{font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+.step .what{padding:24px}
+.step .what h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.step .what p{color:var(--ink-2);font-size:15px;margin-top:4px}
+.step .what ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.step .what li{font-size:15px;display:grid;grid-template-columns:120px 1fr;gap:12px}
+.step .what li span:first-child{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.step.key{background:var(--tint-green)}
+.step.key .when .date{color:var(--green-700)}
+
+/* asks */
+.asks .row .t{font-weight:500}
+
+footer{background:var(--surface-ink);color:#F4F5F5}
+footer .wrap{padding-top:40px;padding-bottom:40px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .mark b{color:#F4F5F5}
+footer .label{color:var(--green-400)}
+
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .hero h1{font-size:34px}
+  .strip{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--border-1)}
+  .bar{grid-template-columns:1fr 80px}
+  .bar .track{grid-column:1 / -1;order:3}
+  .step{grid-template-columns:1fr}
+  .step .when{border-right:0;border-bottom:1px solid var(--border-1);padding-bottom:12px}
+  .step .what li{grid-template-columns:1fr;gap:0}
+  .row{grid-template-columns:1fr}
+  .chips{justify-content:flex-start}
+  .row > .badge{justify-self:start}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <span class="label">Nishorama · Retention progress</span>
+</div></div>
+
+<!-- HERO -->
+<div class="hero"><div class="wrap">
+  <div class="label">Retention progress · India + Global</div>
+  <h1>Retention is live on both stores, and it's already earning.</h1>
+  <p>What we've built, what it has brought in, and what happens over the next two weeks.</p>
+  <div class="meta">
+    <span class="label">Period · 28 Sep – 14 Oct 2026 (first 17 days)</span>
+    <span class="label">Source · Klaviyo, Shopify</span>
+  </div>
+</div></div>
+
+<!-- 01 AT A GLANCE -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">01 · At a glance</div>
+    <h2>17 days in</h2>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>India</h3><span class="label">nishorama.com · ₹</span></div>
+    <div class="strip">
+      <div class="stat"><span class="v lead">₹2.80L</span><span class="label">Revenue via Klaviyo</span></div>
+      <div class="stat"><span class="v">136</span><span class="label">Orders</span></div>
+      <div class="stat"><span class="v">4,025</span><span class="label">New email subscribers</span></div>
+      <div class="stat"><span class="v">6</span><span class="label">Automations live</span></div>
+    </div>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>Global</h3><span class="label">row.nishorama.com · $</span></div>
+    <div class="strip">
+      <div class="stat"><span class="v lead">$15.2k</span><span class="label">Revenue via Klaviyo</span><span class="s">22% of store revenue</span></div>
+      <div class="stat"><span class="v">121</span><span class="label">Orders</span></div>
+      <div class="stat"><span class="v">4,394</span><span class="label">New subscribers</span><span class="s">3,562 email · 832 SMS</span></div>
+      <div class="stat"><span class="v">9</span><span class="label">Automations live</span><span class="s">Email + SMS</span></div>
+    </div>
+  </div>
+  <p class="note">Revenue via Klaviyo is the revenue from orders Klaviyo attributes to an email or SMS, using its default attribution window.</p>
+</div></section>
+
+<!-- 02 WHAT'S LIVE -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">02 · What's live</div>
+    <h2>The always-on layer is in place</h2>
+    <p>These run every day without anyone pressing send. Each one catches a shopper at a specific moment.</p>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>India</h3><span class="label">Email · WhatsApp via Bitespeed</span></div>
+    <div class="rows">
+      <div class="row"><div><div class="t">Sign-up form + welcome series</div><div class="d">New Klaviyo form on site, 2,552 sign-ups so far. Welcome series with the first-order code.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Abandoned cart</div><div class="d">Brings back shoppers who added to cart and left.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Abandoned checkout</div><div class="d">Now connected to the Shiprocket checkout, which wasn't tracked before.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Browse abandonment</div><div class="d">Follows up on products viewed but not added.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Post-purchase · order + delivered</div><div class="d">Follows up after the order is placed and again once it's delivered.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Campaigns</div><div class="d">8 sent: NishOtsav launch, Navratri content, warm-up sends.</div></div><span class="badge neutral">8 sent</span></div>
+    </div>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>Global</h3><span class="label">Email · SMS (US + Canada)</span></div>
+    <div class="rows">
+      <div class="row"><div><div class="t">Welcome series</div><div class="d">Connected to the Alia pop-up, with the first-order code.</div></div><div class="chips"><span class="chip">Email</span><span class="chip">SMS</span><span class="badge ok">Live</span></div></div>
+      <div class="row"><div><div class="t">Abandoned checkout</div><div class="d">Recovers shoppers who started checkout and left.</div></div><div class="chips"><span class="chip">Email</span><span class="chip">SMS</span><span class="badge ok">Live</span></div></div>
+      <div class="row"><div><div class="t">Browse abandonment</div><div class="d">Follows up on products viewed but not added.</div></div><div class="chips"><span class="chip">Email</span><span class="chip">SMS</span><span class="badge ok">Live</span></div></div>
+      <div class="row"><div><div class="t">Post-purchase · order + fulfilled</div><div class="d">Follows up after the order is placed and again once it ships.</div></div><div class="chips"><span class="chip">Email</span><span class="chip">SMS</span><span class="badge ok">Live</span></div></div>
+      <div class="row"><div><div class="t">SMS channel</div><div class="d">Toll-free sender approved. The SMS list started from zero and now has 832 subscribers.</div></div><span class="badge ok">Live</span></div>
+      <div class="row"><div><div class="t">Campaigns</div><div class="d">8 sent: NishOtsav VIP + launch, Navratri content, first-order offer.</div></div><span class="badge neutral">8 sent</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 REVENUE -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">03 · Where the revenue came from</div>
+    <h2>The welcome series is doing the heavy lifting</h2>
+    <p>Campaigns so far were warm-up and pre-sale content with no offer. The Diwali sale is where they start earning.</p>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>India</h3><span class="label">Revenue via Klaviyo · ₹2.80L</span></div>
+    <div class="bars" data-market="India">
+      <div class="bar" data-tip="Welcome series · 83 orders · ₹1,87,640"><span class="n">Welcome series</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">₹1.88L</span></div>
+      <div class="bar muted" data-tip="Campaigns · 33 orders · ₹60,114"><span class="n">Campaigns</span><div class="track"><div class="fill" style="width:32%"></div></div><span class="val">₹60.1k</span></div>
+      <div class="bar" data-tip="Abandoned cart + checkout · 10 orders · ₹19,391"><span class="n">Cart + checkout recovery</span><div class="track"><div class="fill" style="width:10.3%"></div></div><span class="val">₹19.4k</span></div>
+      <div class="bar" data-tip="Post-purchase · 8 orders · ₹10,966"><span class="n">Post-purchase</span><div class="track"><div class="fill" style="width:5.8%"></div></div><span class="val">₹11.0k</span></div>
+      <div class="bar" data-tip="Browse abandonment · 2 orders · ₹1,399"><span class="n">Browse abandonment</span><div class="track"><div class="fill" style="width:0.75%"></div></div><span class="val">₹1.4k</span></div>
+    </div>
+  </div>
+
+  <div class="market">
+    <div class="market-head"><h3>Global</h3><span class="label">Revenue via Klaviyo · $15.2k</span></div>
+    <div class="bars" data-market="Global">
+      <div class="bar" data-tip="Welcome series · 112 orders · $14,150 (email $13,383 · SMS $767)"><span class="n">Welcome series</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">$14.2k</span></div>
+      <div class="bar muted" data-tip="Campaigns · 3 orders · $486"><span class="n">Campaigns</span><div class="track"><div class="fill" style="width:3.4%"></div></div><span class="val">$486</span></div>
+      <div class="bar" data-tip="Checkout recovery · 4 orders · $456 (email $321 · SMS $135)"><span class="n">Checkout recovery</span><div class="track"><div class="fill" style="width:3.2%"></div></div><span class="val">$456</span></div>
+      <div class="bar" data-tip="Browse abandonment · 1 order · $70"><span class="n">Browse abandonment</span><div class="track"><div class="fill" style="width:0.5%"></div></div><span class="val">$70</span></div>
+      <div class="bar" data-tip="Post-purchase · 1 order · $53"><span class="n">Post-purchase</span><div class="track"><div class="fill" style="width:0.4%"></div></div><span class="val">$53</span></div>
+    </div>
+  </div>
+
+  <p class="note"><b>Store context, same 17 days vs the 8 weeks before:</b> revenue per day up 10% in India and 54% in Global, and repeat-customer revenue in India up 25%. The NishOtsav launch and Navratri also fall in this window.</p>
+</div></section>
+
+<!-- 04 WHATSAPP -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">04 · WhatsApp · India</div>
+    <h2>WhatsApp via Bitespeed</h2>
+  </div>
+  <div class="placeholder">
+    <div class="label">Numbers being added</div>
+    <p>Bitespeed campaign and automation results for the same period.</p>
+  </div>
+</div></section>
+
+<!-- 05 EMAIL HEALTH -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">05 · Email health</div>
+    <h2>Building India's sender reputation step by step</h2>
+    <p>Klaviyo is a new sender for both stores, so inboxes need time to trust it. Global is already there. India has a much bigger list, so we're widening it gradually.</p>
+  </div>
+  <div class="rows">
+    <div class="row"><div><div class="t">Global</div><div class="d">19% of people open campaigns and only 0.4% bounce. We can send to the full list.</div></div><span class="badge ok">Healthy</span></div>
+    <div class="row"><div><div class="t">India</div><div class="d">Engaged audiences open at 21–27%. Each send goes a step wider, but only after the last one cleared our bar: under 1% bounce and at least 15% opens.</div></div><span class="badge warn">Warming up</span></div>
+  </div>
+  <div class="callout">
+    <div class="label">For the sale</div>
+    <p>India email goes to the ~47k most engaged subscribers. WhatsApp covers everyone else, so the full list hears about the sale without risking the inbox before Diwali.</p>
+  </div>
+</div></section>
+
+<!-- 06 NEXT TWO WEEKS -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">06 · Next two weeks</div>
+    <h2>Everything builds to the Diwali sale</h2>
+    <p>Same plan in both markets. India gets email + WhatsApp, Global gets email + SMS.</p>
+  </div>
+  <div class="tl">
+    <div class="step">
+      <div class="when"><div class="label">Now – 21 Oct</div><div class="date">Build-up</div></div>
+      <div class="what">
+        <h4>Waitlist and pre-buzz</h4>
+        <p>Three sends that point people to the sale waitlist, plus a first-order offer for subscribers who haven't bought yet.</p>
+        <ul>
+          <li><span>17 Oct</span><span>The waitlist is open</span></li>
+          <li><span>19 Oct</span><span>A first look at what goes in the sale</span></li>
+          <li><span>21 Oct</span><span>Last day to join the waitlist</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="when"><div class="label">22 Oct</div><div class="date">Countdown</div></div>
+      <div class="what">
+        <h4>Teaser + early access</h4>
+        <p>A 6-hour countdown to everyone: fill your cart now, pay at go-live. Waitlist and NishoCrew hear an hour before anyone else.</p>
+      </div>
+    </div>
+    <div class="step key">
+      <div class="when"><div class="label">23 – 26 Oct</div><div class="date">Diwali sale</div></div>
+      <div class="what">
+        <h4>Up to 50% off, plus one extra deal a day</h4>
+        <p>Up to two sends a day: the deal in the morning, an "ends tonight" reminder later. Days below are India time; Global runs on the same schedule in US time.</p>
+        <ul>
+          <li><span>Fri – Sat</span><span>Spend more, save more</span></li>
+          <li><span>Sun</span><span>Free linen pants above ₹3,999 / $150</span></li>
+          <li><span>Mon</span><span>Personal codes: DIWALI15 for new shoppers, CREW12 for NishoCrew</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="when"><div class="label">30 – 31 Oct</div><div class="date">After the sale</div></div>
+      <div class="what">
+        <h4>Diwali collection launch · Halloween (Global)</h4>
+        <p>Full-price launch to the engaged list, and a dark-prints edit for Global's Halloween weekend.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="when"><div class="label">Alongside</div><div class="date">Automations</div></div>
+      <div class="what">
+        <h4>Sale versions of the flows, then back-in-stock</h4>
+        <p>Welcome, browse and checkout flows switch to sale messaging for the week. Back-in-stock alerts are next once the sale is done.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 07 NEEDED -->
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="num">07 · Needed from your team</div>
+    <h2>What we need to launch on time</h2>
+  </div>
+  <div class="rows asks">
+    <div class="row"><div class="t">Waitlist page links, India and Global</div><span class="badge warn">Before 17 Oct</span></div>
+    <div class="row"><div class="t">Sale key visuals</div><span class="badge warn">Before 17 Oct</span></div>
+    <div class="row"><div class="t">Lowest sale price per category, for the teaser</div><span class="badge neutral">Before 21 Oct</span></div>
+    <div class="row"><div class="t">Linen pants collection page on both stores, with stock</div><span class="badge neutral">Before 23 Oct</span></div>
+    <div class="row"><div class="t">Diwali collection name and link</div><span class="badge neutral">Before 28 Oct</span></div>
+    <div class="row"><div class="t">Halloween discount, Global (20–30%)</div><span class="badge neutral">Before 28 Oct</span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <span class="label">Prepared for Nishorama · October 2026</span>
+</div></footer>
+
+<div class="tip" id="tip"></div>
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('.bar[data-tip]').forEach(function(b){
+    b.addEventListener('mousemove',function(e){
+      tip.textContent=b.getAttribute('data-tip');
+      tip.style.left=Math.min(e.clientX+14, window.innerWidth-280)+'px';
+      tip.style.top=(e.clientY+14)+'px';
+      tip.style.opacity=1;
+    });
+    b.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+  });
+})();
+</script>
+</body>
+</html>

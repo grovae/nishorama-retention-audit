@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BFCM 2026 offers · Nishorama</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
+:root{
+  --ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;
+  --bg:#F4F5F5;--surface:#FFFFFF;--sunken:#ECEEEE;--ink-block:#101213;
+  --border:#DCDEDE;--green:#1B4D3E;--green-400:#5C9083;
+  --tint:rgba(27,77,62,.06);--tint-border:rgba(27,77,62,.22);
+  --sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'Spline Sans Mono','IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink-1);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.label{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.top{border-bottom:1px solid var(--border);background:var(--surface)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.mark{display:inline-flex;align-items:center;gap:10px}
+.mark i{width:12px;height:12px;background:var(--green);display:block}
+.mark b{font-weight:700;font-size:17px;letter-spacing:-.04em}
+.hero{padding:52px 0 36px}
+.hero h1{font-size:44px;font-weight:600;letter-spacing:-.045em;line-height:1.05;margin-top:12px}
+.hero p{color:var(--ink-2);margin-top:12px;font-size:16px}
+
+.offer{background:var(--surface);border:1px solid var(--border);margin-bottom:20px}
+.offer .head{display:flex;gap:16px;justify-content:space-between;align-items:baseline;padding:16px 28px;border-bottom:1px solid var(--border)}
+.offer .body{padding:32px 28px}
+.big{font-size:64px;font-weight:600;letter-spacing:-.05em;line-height:1}
+.big .s{font-size:22px;letter-spacing:-.02em;color:var(--ink-2);font-weight:500}
+.sub{font-size:17px;color:var(--ink-2);margin-top:12px}
+.why{display:flex;gap:12px;padding:16px 28px;border-top:1px solid var(--border);background:var(--tint);font-size:14px}
+.why .label{color:var(--green);padding-top:3px;flex:none}
+
+.tiers{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
+.tiers>div{padding:22px 24px}
+.tiers>div+div{border-left:1px solid var(--border)}
+.tier{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border)}
+.tier:last-child{border-bottom:0}
+.tier .amt{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.tier .on{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+
+.days{border:1px solid var(--border);margin-top:28px}
+.days>div{display:grid;grid-template-columns:190px 1fr;gap:20px;align-items:baseline;padding:18px 22px}
+.days>div+div{border-top:1px solid var(--border)}
+.days .c{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.days .n{font-size:14px;color:var(--ink-2);margin-top:4px}
+.days .hl{background:var(--tint)}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.opts span{border:1px solid var(--tint-border);background:var(--surface);padding:6px 12px;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.opts span em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-right:8px;font-weight:400}
+
+.ask{background:var(--ink-block);color:#F4F5F5;padding:40px 0;margin-top:40px}
+.ask .label{color:var(--green-400)}
+.ask h2{font-size:24px;font-weight:600;letter-spacing:-.03em;margin:10px 0 14px}
+.ask ol{margin-left:20px;color:#D9DBDB}
+.ask li{padding:5px 0}
+.note{color:var(--ink-2);font-size:14px;padding:4px 0 0}
+footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:720px){
+  .hero h1{font-size:32px}
+  .big{font-size:48px}
+  .offer .head,.offer .body,.why{padding-left:20px;padding-right:20px}
+  .tiers{grid-template-columns:1fr}
+  .tiers>div+div{border-left:0;border-top:1px solid var(--border)}
+  .days>div{grid-template-columns:1fr;gap:4px;padding:16px 18px}
+  .why{flex-direction:column;gap:4px}
+  .offer .head .label:last-child{display:none}
+  .big .s{display:block;margin-top:8px}
+}
+.deals{margin-top:8px}
+.deal{background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+.deal .when{display:flex;justify-content:space-between;gap:16px;padding:14px 28px;border-bottom:1px solid var(--border)}
+.deal .what{padding:26px 28px}
+.deal h3{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.deal p{color:var(--ink-2);margin-top:8px;font-size:15.5px}
+.deal .tiers{margin-top:20px}
+.deal.hl{border-color:var(--tint-border)}
+.deal.hl .when{background:var(--tint);border-bottom-color:var(--tint-border)}
+.sec{margin:36px 0 14px}
+.sec h2{font-size:26px;font-weight:600;letter-spacing:-.03em;margin-top:8px}
+.sec p{color:var(--ink-2);margin-top:6px}
+@media (max-width:720px){.deal .when,.deal .what{padding-left:20px;padding-right:20px}.deal h3{font-size:24px}}
+</style>
+<style>
+.track{margin-top:44px;padding-top:28px;border-top:1px solid var(--border)}
+.track h2{font-size:30px;font-weight:600;letter-spacing:-.035em;margin-top:8px}
+.track .lead{color:var(--ink-2);margin-top:8px;font-size:15.5px;max-width:720px}
+.phase{display:grid;grid-template-columns:200px 1fr;gap:20px;background:var(--surface);border:1px solid var(--border);border-top:0;padding:20px 24px}
+.phase:first-of-type{border-top:1px solid var(--border)}
+.phase .d{font-size:16px;font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.phase .d small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-top:4px}
+.phase h3{font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.phase p{color:var(--ink-2);margin-top:6px;font-size:14.5px}
+.phase.hl{background:var(--tint)}
+.phases{margin-top:18px}
+.rule{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.rule>div{background:var(--surface);border:1px solid var(--border);padding:18px 22px;font-size:14.5px}
+.rule>div .label{display:block;margin-bottom:8px}
+.rule ul{margin-left:18px;color:var(--ink-2)}
+.rule li{padding:2px 0}
+@media (max-width:720px){.phase{grid-template-columns:1fr;gap:6px;padding:16px 18px}.rule{grid-template-columns:1fr}.track h2{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <span class="label">Nishorama · BFCM 2026</span>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="label">Proposed plan · 7 Nov – 11 Dec · Global and India</div>
+    <h1>Early access first. The biggest offer on the main days. A hard end.</h1>
+    <p>Built on what Diwali taught us: the sale is won before it opens, deadline days beat discount days, threshold deals build bigger baskets than codes, and the list buys first. Global runs long and aggressive. India runs short, three weeks after Diwali.</p>
+  </div>
+
+  <div class="track">
+    <div class="label">Global · row.nishorama.com</div>
+    <h2>Four phases, five weeks</h2>
+    <p class="lead">Early access from 7 Nov as the team suggested. The offer steps up twice, then peaks on Black Friday to Cyber Monday, and a Christmas shipping deadline carries December.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="d">Now – Thu 6 Nov<small>Build the list</small></div>
+        <div><h3>Early-access popup goes live</h3><p>"Black Friday early access. Get the deal a week before everyone." Email and SMS fields. One teaser email and SMS to the engaged list. SMS earned 10× email per recipient at Diwali; this is where we grow it.</p></div>
+      </div>
+      <div class="phase">
+        <div class="d">Fri 7 – Thu 19 Nov<small>Early access · list only</small></div>
+        <div><h3>30% off sitewide with code EARLY30</h3><p>The site stays at full price. The code is the only way in, so it goes to the list, SMS subscribers and popup signups only. Free shipping threshold drops to $75 for the window.</p></div>
+      </div>
+      <div class="phase">
+        <div class="d">Fri 20 – Wed 25 Nov<small>Public pre-sale</small></div>
+        <div><h3>30% off on site for everyone, plus a free gift above $150 for the list</h3><p>The price drop goes public, no code. Early-access subscribers keep an edge: a free pair of linen pants above $150, the mechanic that built the biggest baskets at Diwali.</p></div>
+      </div>
+      <div class="phase hl">
+        <div class="d">Thu 26 Nov 12:01 AM ET – Mon 30 Nov 11:59 PM ET<small>Black Friday to Cyber Monday · 5 days</small></div>
+        <div><h3>Up to 50% off, plus $20 / $30 / $40 off above $150 / $200 / $250</h3><p>Sitewide slabs (50 / 40 / 30) with spend tiers on top, no codes. A doorbuster drop each morning: five or six bestsellers at 50%, limited sizes. Hard end Monday midnight ET, no extension. Diwali showed Global halves the day after a deadline, so the deadline is the offer.</p></div>
+      </div>
+      <div class="phase">
+        <div class="d">Tue 1 – Fri 11 Dec<small>Christmas deadline</small></div>
+        <div><h3>25% off, and order by 11 Dec to get it by Christmas</h3><p>Ten business days to delivery. At Diwali, "order today, wear it for Diwali" was Global's biggest day. Same lever, bigger occasion.</p></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div><span class="label">Sends</span><ul><li>One email a day at most, engaged audiences only. All-list sends opened at 11% in October; engaged at 37–45%.</li><li>SMS on every phase open and close.</li><li>Sale versions of welcome, browse and checkout flows for the whole run.</li><li>Buyers suppressed for 15 days after ordering.</li></ul></div>
+      <div><span class="label">Why three steps, not five</span><ul><li>Every extra step teaches people to wait for the next one.</li><li>30% gets the list moving, the gift rewards loyalty without cutting price, 50% is the headline.</li><li>Codes barely got used on Global at Diwali (6 of 905 orders). EARLY30 works only because the site shows full price.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="track">
+    <div class="label">India · nishorama.com</div>
+    <h2>Five days, one deal at a time</h2>
+    <p class="lead">India did ₹2.99 Cr three weeks ago. Coming back at 50% off again trains the base to wait for sales, so the headline is up to 40% off, the daily deals carry the week, and the whole thing runs five days with early access the night before.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="d">Fri 13 – Wed 25 Nov<small>Build the list</small></div>
+        <div><h3>Black Friday waitlist popup, two weeks out</h3><p>Diwali's waitlist opened six days out and converted at 13.7%, spending 16% more than everyone else. Two weeks gives it time to fill. WhatsApp and email fields, with the one-hour-to-go promise.</p></div>
+      </div>
+      <div class="phase">
+        <div class="d">Wed 25 Nov · 11 PM IST<small>Early access</small></div>
+        <div><h3>Waitlist and NishoCrew shop one hour early, on WhatsApp and push</h3><p>At Diwali the waitlist was reached by email only, the weakest India channel. This time the one-hour-to-go goes on WhatsApp to the waitlist itself, with an app push at 11:30 PM and at 12:01 AM.</p></div>
+      </div>
+      <div class="phase hl">
+        <div class="d">Thu 26 – Mon 30 Nov<small>Black Friday to Cyber Monday · 5 days</small></div>
+        <div><h3>Up to 40% off sitewide, plus one extra deal a day</h3><p>Thu–Fri: spend more, save more (₹300 / ₹450 / ₹600 off above ₹2,999 / ₹3,999 / ₹4,999). Sat: free linen pants above ₹3,999. Sun: app-only extra 10% off (the app audience grew 62% in Diwali week). Mon, last day: free pants are back for 12 hours, and last sizes left. No personal codes; at Diwali they built the smallest baskets of the week.</p></div>
+      </div>
+      <div class="phase">
+        <div class="d">Tue 1 Dec<small>Hard stop</small></div>
+        <div><h3>Prices go back up at midnight. No extension.</h3><p>The Diwali extension paid, but a second one in six weeks costs trust. Announce the end date in every send.</p></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div><span class="label">Sends</span><ul><li>WhatsApp: one broadcast a day per person, hard cap. Customers and verified subscribers only; prospects through journeys. Suppress anyone who has not read in 30 days before the sale, not during it.</li><li>App push: 3 a day, offset from WhatsApp, midnight launch push is the big one.</li><li>Email: engaged-only audiences until the Gmail fix lands.</li><li>Buyers suppressed for 15 days after ordering.</li></ul></div>
+      <div><span class="label">Before go-live</span><ul><li>Pause APP10, NISHOKALISH5 and NISHO10. They stacked on 1,920 Diwali orders worth ₹38.4 L.</li><li>Switch off the automatic 10% over ₹2,599.</li><li>Linen pants stock in all sizes for Saturday and Monday.</li><li>Test every deal on GoKwik checkout.</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="ask"><div class="wrap">
+  <div class="label">To lock the plan</div>
+  <h2>What we need from you</h2>
+  <ol>
+    <li>Discount depth: Global 30% early access and up to 50% on the main days; India up to 40%. Say yes or give us the numbers.</li>
+    <li>Global doorbusters: five or six bestsellers that can go to 50% with stock in all sizes.</li>
+    <li>Linen pants stock, India and Global, for the free-pants days.</li>
+    <li>Exclusions: Diwali collection stays full price, or goes in?</li>
+    <li>Global popup goes live tomorrow once you confirm the 30%.</li>
+    <li>India: confirm 26–30 Nov and up to 40%, and we start the waitlist page.</li>
+  </ol>
+</div></div>
+
+<div class="wrap"><footer>Prepared by Grovae · 2 Nov 2026 · Based on the Diwali sale results</footer></div>
+</body>
+</html>

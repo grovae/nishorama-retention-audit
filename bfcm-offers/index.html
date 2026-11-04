@@ -123,7 +123,14 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
 .count>div{padding:16px 20px}
 .count>div+div{border-left:1px solid var(--border)}
 .count b{display:block;font-size:30px;font-weight:600;letter-spacing:-.04em;line-height:1.1}
-@media (max-width:720px){.row{grid-template-columns:1fr;gap:2px;padding:12px 18px}.row .ch{text-align:left;margin-top:4px}.t{margin:0 4px 0 0}.count{grid-template-columns:1fr 1fr}.count>div:nth-child(3){border-left:0}.count>div:nth-child(n+3){border-top:1px solid var(--border)}}
+.days .k{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--tint-border);padding:2px 6px;margin-bottom:6px}
+.days .c small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-top:3px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);background:var(--surface);margin-top:18px}
+.facts>div{padding:16px 20px;font-size:14px;color:var(--ink-2)}
+.facts>div:nth-child(3n+2),.facts>div:nth-child(3n+3){border-left:1px solid var(--border)}
+.facts>div:nth-child(n+4){border-top:1px solid var(--border)}
+.facts b{display:block;font-size:26px;font-weight:600;letter-spacing:-.04em;color:var(--ink-1);line-height:1.15}
+@media (max-width:720px){.row{grid-template-columns:1fr;gap:2px;padding:12px 18px}.row .ch{text-align:left;margin-top:4px}.t{margin:0 4px 0 0}.count{grid-template-columns:1fr 1fr}.count>div:nth-child(3){border-left:0}.count>div:nth-child(n+3){border-top:1px solid var(--border)}.facts{grid-template-columns:1fr}.facts>div{border-left:0!important}.facts>div+div{border-top:1px solid var(--border)}}
 </style>
 </head>
 <body>
@@ -135,21 +142,56 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
 <div class="wrap">
   <div class="hero">
     <div class="label">Proposed CRM plan · Fri 6 Nov – Tue 8 Dec · row.nishorama.com</div>
-    <h1>A month of sends. The list shops first. Deals only on the days that need them.</h1>
-    <p>The offer is the one agreed on the 3 Nov call. This page adds the email and SMS plan around it: a VVIP list built over two weeks, two small deals before the sale, one deal a day on the four main days.</p>
+    <h1>Two weeks of testing. Black Friday runs on what won.</h1>
+    <p>Early access is our testing ground. Every day or two the list gets a different deal on top of the 50% plus 15%. We track what each one does, and the four best become the Black Friday daily deals.</p>
   </div>
 
   <div class="track" style="margin-top:0;border-top:0;padding-top:0">
+    <div class="label">What the Global orders say · last 90 days</div>
+    <h2>Where the deals come from</h2>
+    <div class="facts">
+      <div><b>$113</b>Average order. Half land under $100.</div>
+      <div><b>43%</b>Orders with one piece, at $61. Two pieces average $108.</div>
+      <div><b>354</b>Orders with a kurti and pants together. White pants are the #3 seller.</div>
+      <div><b>698</b>Orders with two or more kurtis. Kurtis are the most-bought item.</div>
+      <div><b>⅓</b>Share of sales from Sets. 381 orders had two or more.</div>
+      <div><b>$194</b>Average order with the Diwali mystery gift, against $109 without. It was added automatically.</div>
+    </div>
+  </div>
+
+  <div class="track">
+    <div class="label">The test · Mon 9 – Mon 23 Nov</div>
+    <h2>Nine deals, nine different mechanics</h2>
+    <p class="lead">Each deal lives in email, SMS and WhatsApp only, through a link that applies it at checkout. Fri 6 to Sun 8 run the base offer alone, so we have a clean number to beat.</p>
+    <div class="days">
+      <div><div class="c">Mon 9 Nov<small>24 hours</small></div><div><span class="k">Code depth</span><div class="c">17% instead of 15%, today only</div><div class="n">Does 2 more points move people who are already looking? Code EARLY17.</div></div></div>
+      <div><div class="c">Tue 10 Nov<small>24 hours</small></div><div><span class="k">Add-on</span><div class="c">Bangles or earrings for $10 with any set or kurti</div><div class="n">Jewellery is in only 7.5% of orders today. Tests a cheap second item.</div></div></div>
+      <div><div class="c">Wed 11 Nov<small>11 hours</small></div><div><span class="k">Threshold</span><div class="c">11.11: extra $11 off over $110</div><div class="n">Sits right above the average order. Moves one-piece carts to two.</div></div></div>
+      <div><div class="c">Thu 12 – Fri 13<small>48 hours</small></div><div><span class="k">Bundle</span><div class="c">Kurti + pants: pants for $15 with any kurti</div><div class="n">The most common pair on the site. One landing page with both.</div></div></div>
+      <div><div class="c">Sat 14 – Sun 15<small>48 hours</small></div><div><span class="k">Spend and save</span><div class="c">$10 off $100 · $20 off $150 · $35 off $200</div><div class="n">A smaller version of Diwali's best basket builder. 49% of orders already clear $100.</div></div></div>
+      <div><div class="c">Tue 17 – Wed 18<small>48 hours</small></div><div><span class="k">Free gift</span><div class="c">Free white pants over $150, added automatically</div><div class="n">Free pants failed on Global at Diwali because it needed a code. This time no code, like the mystery gift.</div></div></div>
+      <div><div class="c">Thu 19 Nov<small>24 hours</small></div><div><span class="k">Category</span><div class="c">Sets day: any 2 sets, extra $15 off</div><div class="n">The biggest category, and people already buy them in twos.</div></div></div>
+      <div><div class="c">Fri 20 Nov<small>24 hours</small></div><div><span class="k">Collection only</span><div class="c">Corset kurtis: extra 10% on the collection</div><div class="n">Tests whether one hero edit beats a sitewide deal.</div></div></div>
+      <div><div class="c">Sat 21 – Sun 22<small>48 hours</small></div><div><span class="k">Mystery gift</span><div class="c">Free mystery gift over $150</div><div class="n">The Diwali winner, rerun so we can compare it head to head with free pants.</div></div></div>
+      <div class="hl"><div class="c">Mon 23 Nov<small>Last day</small></div><div><span class="k">Winner</span><div class="c">The best deal so far comes back for the last day of early access</div><div class="n">Picked from the scorecard on Sunday.</div></div></div>
+    </div>
+    <div class="rule">
+      <div><span class="label">How we score each deal</span><ul><li>Revenue per person sent, against the 6 to 8 Nov baseline.</li><li>Orders, average order, and how many orders used the deal.</li><li>One line in Slack every morning, one scorecard on Sun 22.</li></ul></div>
+      <div><span class="label">What makes it to Black Friday</span><ul><li>Beats the baseline by 20% or more on revenue per person.</li><li>Holds margin above your floor.</li><li>The top four become the 27 to 30 Nov daily deals.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="track">
     <div class="label">The offer on site</div>
     <h2>Five phases</h2>
     <div class="phases">
       <div class="phase">
         <div class="d">Fri 6 – Mon 23 Nov<small>Early access</small></div>
-        <div><h3>Up to 50% off, extra 15% with a code</h3><p>EARLYACCESS in email and SMS, EARLYBFCM in Meta, BFCM15 on site and Google. Free shipping over $100.</p></div>
+        <div><h3>Up to 50% off, extra 15% with a code</h3><p>EARLYACCESS in email and SMS, EARLYBFCM in Meta, BFCM15 on site and Google. Test deals sit on top for the list.</p></div>
       </div>
       <div class="phase hl">
         <div class="d">Mon 23 Nov, 9 PM ET<small>VVIP list only</small></div>
-        <div><h3>The list gets in three hours before everyone</h3><p>Up to 60% off plus 20% and the $1,000 draw open for the VVIP list at 9 PM ET. Everyone else gets it at midnight.</p></div>
+        <div><h3>The list gets in three hours before everyone</h3><p>Popup signups and anyone who taps "Put me on the list" in the invites. At Diwali the waitlist bought at 13.7% and spent 16% more per order.</p></div>
       </div>
       <div class="phase">
         <div class="d">Tue 24 – Thu 26 Nov<small>VVIP access</small></div>
@@ -157,7 +199,7 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
       </div>
       <div class="phase hl">
         <div class="d">Fri 27 – Mon 30 Nov<small>Black Friday to Cyber Monday</small></div>
-        <div><h3>Same offer, plus one deal a day for the list</h3><p>Site says Black Friday. Daily deals go out only through email, SMS and WhatsApp.</p></div>
+        <div><h3>Same offer, plus the four winning deals, one a day</h3><p>Site says Black Friday. Deals go out through email, SMS and WhatsApp only.</p></div>
       </div>
       <div class="phase">
         <div class="d">Tue 1 – Mon 7 Dec<small>Extended week</small></div>
@@ -167,73 +209,49 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
   </div>
 
   <div class="track">
-    <div class="label">The VVIP list</div>
-    <h2>Built over two weeks, rewarded with three hours</h2>
-    <p class="lead">At Diwali the waitlist bought at 13.7% and spent 16% more per order than everyone else. Same idea here, with one clear perk.</p>
-    <div class="rule">
-      <div><span class="label">Who is on it</span><ul><li>Everyone who signs up on the early-access popup.</li><li>Subscribers who tap "Put me on the list" in one of three invite emails or two SMS.</li></ul></div>
-      <div><span class="label">What they get</span><ul><li>Black Friday opens for them Mon 23 Nov at 9 PM ET, three hours early.</li><li>First shot at sizes before the site traffic hits.</li><li>Their own countdown email and SMS that night.</li></ul></div>
-    </div>
-  </div>
-
-  <div class="track">
-    <div class="label">Deals</div>
-    <h2>Two before the sale, four during it</h2>
-    <p class="lead">Fixed dollar amounts, never another percentage, so margin holds on top of the sale. Each deal is an email link that applies it at checkout. Nothing to type.</p>
-    <div class="days">
-      <div><div class="c">Wed 11 Nov</div><div><div class="c">11.11: extra $11 off over $110, for 11 hours</div><div class="n">A reason to send mid-week. Half of Global orders land under $100, so this nudges them over.</div></div></div>
-      <div><div class="c">Sat 21 – Sun 22 Nov</div><div><div class="c">Free shipping on every order, 48 hours</div><div class="n">The last weekend before the sale. Cheap for us, and a different hook from the code.</div></div></div>
-      <div class="hl"><div class="c">Fri 27 Nov</div><div><div class="c">Spend more, save more: extra $20 off $150, $40 off $250</div><div class="n">Diwali's best offer for basket size. Only 22% of Global orders reach $150 today.</div></div></div>
-      <div class="hl"><div class="c">Sat 28 Nov</div><div><div class="c">Sets day: any 2 sets, extra $25 off</div><div class="n">Sets are the biggest category, about a third of Global sales in the last 90 days.</div></div></div>
-      <div class="hl"><div class="c">Sun 29 Nov</div><div><div class="c">Kurti day: any 3 kurtis, extra $20 off</div><div class="n">Kurtis are the most-bought item.</div></div></div>
-      <div class="hl"><div class="c">Mon 30 Nov</div><div><div class="c">Cyber Monday: the best of the three comes back, ends midnight</div><div class="n">We pick it on Sunday from the numbers.</div></div></div>
-    </div>
-  </div>
-
-  <div class="track">
     <div class="label">Calendar · all times ET</div>
     <h2>Day by day</h2>
     <div class="count">
-      <div><span class="label">Emails</span><b>31</b></div>
-      <div><span class="label">SMS</span><b>15</b></div>
-      <div><span class="label">Deal days</span><b>7</b></div>
-      <div><span class="label">No-send days</span><b>7</b></div>
+      <div><span class="label">Emails</span><b>35</b></div>
+      <div><span class="label">SMS</span><b>19</b></div>
+      <div><span class="label">Deal days</span><b>18</b></div>
+      <div><span class="label">Deals tested</span><b>9</b></div>
     </div>
     <div class="cal">
-      <div class="wk">Week 1 · 6 – 8 Nov</div>
+      <div class="wk">Week 1 · 6 – 8 Nov · baseline</div>
       <div class="row"><div class="dt">Fri 6</div><div class="m">Early access is live<span>Up to 50% plus code EARLYACCESS. Popup and welcome flow go on.</span></div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row"><div class="dt">Sat 7</div><div class="m">VVIP invite 1: Black Friday opens to the list first<span>One button: put me on the list.</span></div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row quiet"><div class="dt">Sun 8</div><div class="m">No send</div><div class="ch"></div></div>
+      <div class="row"><div class="dt">Sat 7</div><div class="m">VVIP invite 1: Black Friday opens to the list first</div><div class="ch"><i class="t">Email</i></div></div>
+      <div class="row"><div class="dt">Sun 8</div><div class="m">The corset kurti everyone asks about</div><div class="ch"><i class="t">Email</i></div></div>
 
-      <div class="wk">Week 2 · 9 – 15 Nov</div>
-      <div class="row"><div class="dt">Mon 9</div><div class="m">The corset kurti everyone asks about<span>Hero styles at the early-access price.</span></div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row quiet"><div class="dt">Tue 10</div><div class="m">No send</div><div class="ch"></div></div>
+      <div class="wk">Week 2 · 9 – 15 Nov · testing</div>
+      <div class="row deal-row"><div class="dt">Mon 9</div><div class="m">17% today only</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Tue 10</div><div class="m">Bangles or earrings for $10 with any set or kurti</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
       <div class="row deal-row"><div class="dt">Wed 11</div><div class="m">11.11: $11 off over $110, 11 hours</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row"><div class="dt">Thu 12</div><div class="m">The pieces people re-order<span>Reviews and repeat bestsellers.</span></div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row"><div class="dt">Fri 13</div><div class="m">VVIP invite 2: 10 days to go</div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row quiet"><div class="dt">Sat 14</div><div class="m">No send</div><div class="ch"></div></div>
-      <div class="row"><div class="dt">Sun 15</div><div class="m">Sets and co-ords<span>New arrivals if a drop lands this week.</span></div><div class="ch"><i class="t">Email</i></div></div>
+      <div class="row deal-row"><div class="dt">Thu 12</div><div class="m">Kurti + pants: pants for $15</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Fri 13</div><div class="m">Kurti + pants ends tonight</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
+      <div class="row deal-row"><div class="dt">Sat 14</div><div class="m">Spend and save: $10 / $20 / $35 off</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Sun 15</div><div class="m">Spend and save ends tonight</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
 
-      <div class="wk">Week 3 · 16 – 22 Nov</div>
-      <div class="row quiet"><div class="dt">Mon 16</div><div class="m">No send</div><div class="ch"></div></div>
-      <div class="row"><div class="dt">Tue 17</div><div class="m">Wedding season, sorted<span>Nisho Men and festive pieces.</span></div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row"><div class="dt">Wed 18</div><div class="m">Gift her the outfit she'll actually wear</div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row"><div class="dt">Thu 19</div><div class="m">VVIP invite 3: last call for the list</div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row"><div class="dt">Fri 20</div><div class="m">Order-by dates for the holidays<span>Bestsellers, and the last day to order for Christmas delivery.</span></div><div class="ch"><i class="t">Email</i></div></div>
-      <div class="row deal-row"><div class="dt">Sat 21</div><div class="m">Free shipping on every order, 48 hours</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row deal-row"><div class="dt">Sun 22</div><div class="m">Free shipping ends tonight</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
+      <div class="wk">Week 3 · 16 – 23 Nov · testing</div>
+      <div class="row"><div class="dt">Mon 16</div><div class="m">VVIP invite 2, with the reviews people leave<span>Rest day for deals.</span></div><div class="ch"><i class="t">Email</i></div></div>
+      <div class="row deal-row"><div class="dt">Tue 17</div><div class="m">Free white pants over $150</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Wed 18</div><div class="m">Free pants ends tonight</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
+      <div class="row deal-row"><div class="dt">Thu 19</div><div class="m">Sets day: 2 sets, extra $15 off<span>SMS also carries the VVIP invite.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Fri 20</div><div class="m">Corset kurtis: extra 10%<span>Plus order-by dates for the holidays.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i></div></div>
+      <div class="row deal-row"><div class="dt">Sat 21</div><div class="m">Free mystery gift over $150</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Sun 22</div><div class="m">Mystery gift ends tonight, and last call for the VVIP list</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Mon 23</div><div class="m">The winner returns. Early access ends tonight (morning and 6 PM)<span>9 PM: VVIP list only, "you're in, three hours early".</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email ×3</i><i class="t">SMS ×2</i></div></div>
 
-      <div class="wk">Week 4 · 23 – 29 Nov</div>
-      <div class="row"><div class="dt">Mon 23</div><div class="m">Early access ends tonight (morning and 6 PM)<span>9 PM: VVIP list only, "you're in, three hours early".</span></div><div class="ch"><i class="t">Email ×3</i><i class="t">SMS ×2</i></div></div>
+      <div class="wk">Week 4 · 24 – 29 Nov · VVIP and Black Friday</div>
       <div class="row"><div class="dt">Tue 24</div><div class="m">VVIP access is open: up to 60% plus 20% and the $1,000 draw</div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
       <div class="row"><div class="dt">Wed 25</div><div class="m">How the $1,000 draw works, and what's selling out</div><div class="ch"><i class="t">Email</i></div></div>
       <div class="row"><div class="dt">Thu 26</div><div class="m">Thanksgiving: one short note<span>US and Canada.</span></div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row deal-row"><div class="dt">Fri 27</div><div class="m">Black Friday is live, plus spend more, save more<span>Morning launch, evening reminder.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email ×2</i><i class="t">SMS</i></div></div>
-      <div class="row deal-row"><div class="dt">Sat 28</div><div class="m">Sets day: any 2 sets, extra $25 off</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
-      <div class="row deal-row"><div class="dt">Sun 29</div><div class="m">Kurti day: any 3 kurtis, extra $20 off<span>Cyber Monday starts tonight.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Fri 27</div><div class="m">Black Friday is live, plus winning deal 1<span>Morning launch, evening reminder.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email ×2</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Sat 28</div><div class="m">Winning deal 2</div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Sun 29</div><div class="m">Winning deal 3<span>Cyber Monday starts tonight.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email</i><i class="t">SMS</i></div></div>
 
       <div class="wk">Week 5 · 30 Nov – 8 Dec</div>
-      <div class="row deal-row"><div class="dt">Mon 30</div><div class="m">Cyber Monday: best deal returns, ends midnight<span>Morning and last 6 hours.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email ×2</i><i class="t">SMS</i></div></div>
+      <div class="row deal-row"><div class="dt">Mon 30</div><div class="m">Cyber Monday: winning deal 4, ends midnight<span>Morning and last 6 hours.</span></div><div class="ch"><i class="t d">Deal</i><i class="t">Email ×2</i><i class="t">SMS</i></div></div>
       <div class="row"><div class="dt">Tue 1 Dec</div><div class="m">Extended week is live</div><div class="ch"><i class="t">Email</i><i class="t">SMS</i></div></div>
       <div class="row"><div class="dt">Thu 3</div><div class="m">Gifting, and delivery cut-offs</div><div class="ch"><i class="t">Email</i></div></div>
       <div class="row"><div class="dt">Sat 5</div><div class="m">Last sizes in the bestsellers</div><div class="ch"><i class="t">Email</i></div></div>
@@ -242,7 +260,7 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
     </div>
 
     <div class="rule">
-      <div><span class="label">Who gets what</span><ul><li>Email goes to people who opened or clicked in the last 90 days. On launch, VVIP open, Black Friday, Cyber Monday and the last day, 180 days.</li><li>SMS goes to all SMS subscribers. It earned 10× email per person at Diwali.</li><li>People who ordered in the last 15 days are left out until 23 Nov. From 24 Nov, only the last 3 days, since the offer is bigger.</li></ul></div>
+      <div><span class="label">Who gets what</span><ul><li>Email goes to people who opened or clicked in the last 90 days. On launch, VVIP open, Black Friday, Cyber Monday and the last day, 180 days.</li><li>"Ends tonight" emails go only to people engaged in the last 30 days who haven't bought, so 18 days of sends don't wear out the list.</li><li>SMS goes to all SMS subscribers. It earned 10× email per person at Diwali.</li><li>People who ordered in the last 15 days are left out until 23 Nov. From 24 Nov, only the last 3 days.</li></ul></div>
       <div><span class="label">Running alongside</span><ul><li>Welcome, checkout and browse flows carry the live offer and switch on 6 Nov and 24 Nov.</li><li>WhatsApp mirrors the deal days.</li><li>The House of Sundar list runs on its own page and its own sends, starting with 5,000.</li></ul></div>
     </div>
   </div>
@@ -252,12 +270,12 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
   <div class="label">To lock the plan</div>
   <h2>What we need from you</h2>
   <ol>
-    <li>Okay on the two pre-sale deals: 11.11 and the free-shipping weekend.</li>
-    <li>Lowest price you accept after 60% plus 20% plus a daily deal.</li>
-    <li>Landing pages for Sets day and Kurti day (Ecom Landers?).</li>
-    <li>Any new drops in November, and their dates.</li>
+    <li>Okay on the nine test deals, or swap any out.</li>
+    <li>Lowest price you accept after a test deal stacks on 50% plus 15%, and on 60% plus 20%.</li>
+    <li>Shopify setup: the app that added the Diwali mystery gift (for free pants and the mystery gift), a buy-X-get-Y for kurti + pants, and a collection-only code for corset kurtis.</li>
+    <li>Stock: white pants in all sizes, mystery gifts, bangles and earrings.</li>
+    <li>Landing pages for kurti + pants, Sets and corset kurtis (Ecom Landers?).</li>
     <li>$1,000 draw rules: which countries, how winners are picked, when they're told.</li>
-    <li>Shipping under $100: $9.95 or $6.95.</li>
     <li>The Black Friday collection URL.</li>
   </ol>
 </div></div>

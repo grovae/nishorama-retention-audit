@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Early access flows · Nishorama</title><meta name="robots" content="noindex,nofollow"><style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
+:root{--ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;--bg:#F4F5F5;--surface:#fff;--sunken:#ECEEEE;--inkbg:#101213;--b1:#DCDEDE;--b2:#C6C9C9;
+--g7:#1B4D3E;--g4:#5C9083;--g50:#EAF1EE;--success:#1B4D3E;--success-bg:#EAF1EE;--warn:#8F6A1E;--warn-bg:#F4EBD7;--danger:#A03A30;--danger-bg:#F6E4E1;
+--sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;--mono:'Spline Sans Mono','IBM Plex Mono',monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink-1);font-family:var(--sans);font-size:14px;line-height:1.55}
+a{color:var(--g7);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.mono{font-family:var(--mono);font-size:12px}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.eyebrow.g{color:var(--g4)}
+.top{background:var(--surface);border-bottom:1px solid var(--b1)}
+.topin{display:flex;justify-content:space-between;align-items:center;height:56px}
+.mark{display:inline-flex;align-items:center;gap:10px}.mark .sq{width:12px;height:12px;background:var(--g7)}.mark .wm{font-weight:700;font-size:18px;letter-spacing:-.04em}
+.mark.inv .wm{color:#F4F5F5}
+.hero{padding:40px 0 32px;border-bottom:1px solid var(--b1)}
+h1{font-size:40px;font-weight:600;letter-spacing:-.045em;line-height:1.05;margin:10px 0 10px}
+.lede{color:var(--ink-2);max-width:640px;margin:0 0 24px;font-size:16px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--b1);background:var(--surface)}
+.strip>div{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.strip>div+div{border-left:1px solid var(--b1)}
+.strip b{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1}.strip b.acc{color:var(--g7)}
+.strip span{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+section{padding:32px 0;border-bottom:1px solid var(--b1)}
+.tw{overflow-x:auto;border:1px solid var(--b1);background:var(--surface);margin-top:12px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{background:var(--sunken);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);text-align:left;font-weight:500;padding:10px 14px;white-space:nowrap}
+td{padding:12px 14px;border-top:1px solid var(--b1);vertical-align:top}
+.num{text-align:right}.subl{color:var(--ink-3);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:2px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.badge.success{background:var(--success-bg);color:var(--success)}.badge.warn{background:var(--warn-bg);color:var(--warn)}
+.badge.danger{background:var(--danger-bg);color:var(--danger)}.badge.neutral{background:var(--sunken);color:var(--ink-2)}
+.sec-head .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 6px}
+h2{font-size:28px;font-weight:600;letter-spacing:-.03em;margin:0 8px 0 0;line-height:1.15}
+.note{color:var(--ink-2);margin:0 0 20px}
+.flow-grid{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+.chart{position:sticky;top:16px;background:var(--surface);border:1px solid var(--b1);padding:16px;font-size:13px}
+.fc-step{display:block;border:1px solid var(--b1);padding:10px 12px;background:var(--surface);color:var(--ink-1);position:relative;margin-bottom:18px}
+.fc-step:after{content:'';position:absolute;left:50%;bottom:-18px;height:18px;border-left:1px solid var(--b2)}
+.fc-step .lbl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.fc-step .sub{color:var(--ink-2);font-size:12px;margin-top:4px}
+.fc-trigger{background:var(--g50);border-color:rgba(27,77,62,.22)}.fc-trigger .lbl{color:var(--g7)}
+.fc-wait{background:var(--sunken);font-family:var(--mono);font-size:12px;padding:6px 12px}
+.fc-email:hover{border-color:var(--g7);text-decoration:none}
+.fc-split{font-size:12px;color:var(--ink-2)}
+.fc-branches{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc-br>.fc-step:last-child:after{display:none}
+.fc-yn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g7);margin:-8px 0 6px}
+.fc-branches .fc-step{font-size:12px;padding:8px}
+.fc-end{color:var(--ink-3)}
+.or{font-family:var(--mono);font-size:10px;text-transform:uppercase;color:var(--ink-3)}
+.mails{display:flex;flex-direction:column;gap:20px;min-width:0}
+.mail{background:var(--surface);border:1px solid var(--b1);scroll-margin-top:16px}
+.mail-head{padding:14px 18px;border-bottom:1px solid var(--b1)}
+h4{margin:4px 0 0;font-size:18px;font-weight:600;letter-spacing:-.02em}
+.mail-body{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:0}
+.shot{border-right:1px solid var(--b1);background:var(--sunken);padding:12px}
+.shot.desk{grid-column:1/-1}
+.tabs{display:flex;gap:4px;margin-bottom:8px}
+.tabs button{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--b2);background:var(--surface);color:var(--ink-2);padding:5px 10px;border-radius:2px;cursor:pointer}
+.tabs button.on{background:var(--ink-1);color:#fff;border-color:var(--ink-1)}
+.frame{border:1px solid var(--b1);background:#fff;max-height:640px;overflow-y:auto}
+.frame img{display:block;width:100%;height:auto}
+.meta{padding:16px 18px;min-width:0}
+dl{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;margin:0 0 16px}
+dt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+dd{margin:0;word-break:break-word}
+.sublabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 6px;padding-top:12px;border-top:1px solid var(--b1)}
+.dyn{margin:0;padding-left:18px;color:var(--ink-2)}
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.checks li{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--sunken)}
+.checks li span:first-child{color:var(--ink-2)}
+.checks li.ok span:last-child{color:var(--success)}.checks li.warn span:last-child{color:var(--warn)}.checks li.bad span:last-child{color:var(--danger);font-weight:600}
+.notes ul{margin:12px 0 0;padding-left:18px;color:var(--ink-2)}.notes li{margin-bottom:6px}
+.foot{background:var(--inkbg);color:#F4F5F5;margin-top:40px}
+.footin{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:32px 16px}
+.foot p{color:#B8BDBE;margin:6px 0 0;max-width:620px;font-size:13px}
+@media (max-width:900px){.flow-grid{grid-template-columns:1fr}.chart{position:static}}
+@media (max-width:640px){h1{font-size:30px}.strip{grid-template-columns:1fr 1fr}.strip>div:nth-child(3){border-left:0}.strip>div:nth-child(n+3){border-top:1px solid var(--b1)}
+.mail-body{grid-template-columns:1fr}.shot{border-right:0;border-bottom:1px solid var(--b1)}.checks{grid-template-columns:1fr}dl{grid-template-columns:96px 1fr}h2{font-size:22px}}
+/* v2: email-first layout */
+.wrap{max-width:1720px}
+.hero{padding:28px 0 24px}
+.viewbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--b1)}
+.viewbar .tabs{margin:0}
+section.flow{padding:28px 0}
+.note{margin:0 0 10px}
+details.logic{margin:0 0 18px}
+details.logic summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g7);padding:6px 0;list-style:none}
+details.logic summary::-webkit-details-marker{display:none}
+details.logic summary:before{content:'+ '}details.logic[open] summary:before{content:'− '}
+details.logic .chart{position:static;max-width:460px;margin-top:8px}
+.mails{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+body.desk .mails{grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+.mail{display:flex;flex-direction:column}
+.mail-head{padding:12px 14px;min-height:118px}
+h4{font-size:15px;line-height:1.3}
+.subj{margin-top:8px;font-weight:600;font-size:13px}
+.prev{color:var(--ink-2);font-size:12px;line-height:1.4}
+.frame{max-height:none;overflow:visible;border:0;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);background:#fff}
+.mail-foot{padding:10px 14px;font-size:12px;display:flex;flex-direction:column;gap:4px}
+.mail-foot .mono{font-size:10px;color:var(--ink-3);letter-spacing:.04em}
+.mail-foot .ok{color:var(--success)}.mail-foot .warn{color:var(--warn)}.mail-foot .bad{color:var(--danger);font-weight:600}
+@media (max-width:640px){.mails{grid-template-columns:1fr}body.desk .mails{grid-template-columns:1fr}.mail-head{min-height:0}}
+
+.sms{padding:22px 14px;background:var(--sunken);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.bubble{background:var(--surface);border:1px solid var(--b1);padding:14px 16px;font-size:15px;line-height:1.5;border-radius:2px;word-break:break-word}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,460px));gap:16px}
+</style></head><body>
+<header class="top"><div class="wrap topin"><span class="mark"><span class="sq"></span><span class="wm">Grovae</span></span><span class="eyebrow">Flow review · Nishorama</span></div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Klaviyo flows · Global · pulled 14 Nov 2026</div>
+<h1>Early access cart and browse flows</h1>
+<p class="lede">Every email and SMS exactly as uploaded to Klaviyo, rendered with real event data. All four flows are in draft and nothing is sending yet.</p>
+<div class="strip"><div><b class="acc">4</b><span>Flows</span></div><div><b>3</b><span>Emails</span></div><div><b>2</b><span>SMS</span></div><div><b>0</b><span>Blocking issues</span></div></div></div>
+<div class="viewbar"><span class="eyebrow">Preview</span><div class="tabs"><button class="on" data-v="m">Mobile</button><button data-v="d">Desktop</button></div></div>
+<section class="idx"><div class="eyebrow">00 · Index</div><div class="tw"><table><thead><tr><th>Flow</th><th>Trigger</th><th class="num">Emails</th><th class="num">SMS</th><th>Status</th></tr></thead><tbody><tr><td><a href="#f-Yw9MNj">GR_BFCM_Earlyaccess_Checkout</a><div class="subl mono">Yw9MNj</div></td><td>Checkout Started</td><td class="num">2</td><td class="num">1</td><td><span class="badge neutral"><span class="dot"></span>Draft</span></td></tr><tr><td><a href="#f-Yw9MNj">GR_BFCM_Earlyaccess_Checkout_TriplePixel</a><div class="subl mono">TrnavV</div></td><td>Checkout Started - Triple Pixel</td><td class="num">2</td><td class="num">1</td><td><span class="badge neutral"><span class="dot"></span>Draft</span></td></tr><tr><td><a href="#f-RbbK5B">GR_BFCM_Earlyaccess_Browse</a><div class="subl mono">RbbK5B</div></td><td>Viewed Product</td><td class="num">1</td><td class="num">1</td><td><span class="badge neutral"><span class="dot"></span>Draft</span></td></tr><tr><td><a href="#f-RbbK5B">GR_BFCM_Earlyaccess_Browse_TriplePixel</a><div class="subl mono">V9aMF2</div></td><td>Viewed Product - Triple Pixel</td><td class="num">1</td><td class="num">1</td><td><span class="badge neutral"><span class="dot"></span>Draft</span></td></tr></tbody></table></div></section>
+<section class="flow" id="all"><div class="sec-head"><div class="eyebrow">01 · All messages</div><div class="row"><h2>Emails and SMS, side by side</h2></div></div><div class="mails"><article class="mail" id="e-Yw9MNj-125079481"><div class="mail-head"><div class="eyebrow">Abandoned checkout · Email · 1 hour after trigger</div><h4>GR_BFCM_Earlyaccess_Checkout_C1</h4><div class="subj">Your bag, at sale prices</div><div class="prev">Up to 50% off is already in your bag. Spend $100 and an extra 10% comes off. No code.</div></div>
+<div class="frame"><img loading="lazy" data-m="img/Yw9MNj_125079481_m.jpg" data-d="img/Yw9MNj_125079481_d.jpg" src="img/Yw9MNj_125079481_m.jpg" alt="Preview of GR_BFCM_Earlyaccess_Checkout_C1"></div>
+<div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending off · UTMs on · 33 KB</div></div></article><article class="mail" id="e-Yw9MNj-125079485"><div class="mail-head"><div class="eyebrow">Abandoned checkout · Email · 20 hours after trigger</div><h4>GR_BFCM_Earlyaccess_Checkout_C2</h4><div class="subj">Early access ends Monday</div><div class="prev">Up to 50% off, plus an extra 10% off when you spend $100. Till Mon 23 Nov.</div></div>
+<div class="frame"><img loading="lazy" data-m="img/Yw9MNj_125079485_m.jpg" data-d="img/Yw9MNj_125079485_d.jpg" src="img/Yw9MNj_125079485_m.jpg" alt="Preview of GR_BFCM_Earlyaccess_Checkout_C2"></div>
+<div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 33 KB</div></div></article><article class="mail" id="e-RbbK5B-125079487"><div class="mail-head"><div class="eyebrow">Browse abandonment · Email · 2 hours after trigger</div><h4>GR_BFCM_Earlyaccess_Browse_B1</h4><div class="subj">This week&#x27;s price on the [product name]</div><div class="prev">Up to 50% off, plus an extra 10% off when you spend $100. No code.</div></div>
+<div class="frame"><img loading="lazy" data-m="img/RbbK5B_125079487_m.jpg" data-d="img/RbbK5B_125079487_d.jpg" src="img/RbbK5B_125079487_m.jpg" alt="Preview of GR_BFCM_Earlyaccess_Browse_B1"></div>
+<div class="mail-foot"><div><span class="ok">All checks passed</span></div><div class="mono">Event data · Smart sending on · UTMs on · 31 KB</div></div></article><article class="mail" id="e-Yw9MNj-125079483"><div class="mail-head"><div class="eyebrow">Abandoned checkout · SMS · 4 hours after trigger</div><h4>GR_BFCM_Earlyaccess_Checkout_SMS1</h4><div class="subj">Text message</div><div class="prev">Goes only to people with SMS consent. Quiet hours on.</div></div>
+<div class="sms"><div class="bubble">Nishorama: your bag is at up to 50% off. Spend $100, get an extra 10% off. No code. [short link] Reply STOP to opt out</div></div>
+<div class="mail-foot"><div><span class="ok">132 of 160 characters · 1 SMS</span></div><div class="mono">Link shortened by Klaviyo · opt-out line included · Smart sending off</div></div></article><article class="mail" id="e-RbbK5B-125079489"><div class="mail-head"><div class="eyebrow">Browse abandonment · SMS · 6 hours after trigger</div><h4>GR_BFCM_Earlyaccess_Browse_SMS1</h4><div class="subj">Text message</div><div class="prev">Goes only to people with SMS consent. Quiet hours on.</div></div>
+<div class="sms"><div class="bubble">Nishorama: the piece you looked at is up to 50% off. Spend $100, get an extra 10% off. No code. [short link] Reply STOP to opt out</div></div>
+<div class="mail-foot"><div><span class="ok">144 of 160 characters · 1 SMS</span></div><div class="mono">Link shortened by Klaviyo · opt-out line included · Smart sending off</div></div></article></div></section>
+<section class="flow" id="f-Yw9MNj"><div class="sec-head"><div class="eyebrow">02 · Global · <span class="mono">Yw9MNj</span> + <span class="mono">TrnavV</span></div>
+<div class="row"><h2>GR_BFCM_Earlyaccess_Checkout</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
+<p class="note">Trigger <b>Checkout Started</b> · 2 emails + 1 SMS in one flow · from Nishorama &lt;support@nishorama.com&gt; · previews use a real recent event (Laila Maroon Fendi Pant &amp; Dupatta, Tyla Top, Maia Cape Structured Kurti Top), personal details removed.</p>
+<p class="note">Triple Pixel copy <b>GR_BFCM_Earlyaccess_Checkout_TriplePixel</b>: same emails and SMS, starts 15 minutes later, and skips anyone the main flow already emailed.</p>
+<details class="logic"><summary>Flow logic: trigger, filters and waits</summary><div class="charts"><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-Yw9MNj-125079481"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Checkout_C1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>3 hours</div><a class="fc-step fc-email" href="#e-Yw9MNj-125079483"><span class="lbl">SMS</span>GR_BFCM_Earlyaccess_Checkout_SMS1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>16 hours</div><a class="fc-step fc-email" href="#e-Yw9MNj-125079485"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Checkout_C2</a><div class="fc-step fc-end">Exit</div></div><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Checkout Started - Triple Pixel</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Received Email</b> from <b>GR_BFCM_Earlyaccess_Checkout</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 7 days</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>15 minutes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>1 hour</div><a class="fc-step fc-email" href="#e-TrnavV-125079492"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Checkout_C1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>3 hours</div><a class="fc-step fc-email" href="#e-TrnavV-125079494"><span class="lbl">SMS</span>GR_BFCM_Earlyaccess_Checkout_SMS1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>16 hours</div><a class="fc-step fc-email" href="#e-TrnavV-125079496"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Checkout_C2</a><div class="fc-step fc-end">Exit</div></div></div></details></div></section><section class="flow" id="f-RbbK5B"><div class="sec-head"><div class="eyebrow">03 · Global · <span class="mono">RbbK5B</span> + <span class="mono">V9aMF2</span></div>
+<div class="row"><h2>GR_BFCM_Earlyaccess_Browse</h2><span class="badge neutral"><span class="dot"></span>Draft</span> <span class="badge success"><span class="dot"></span>QA passed</span></div>
+<p class="note">Trigger <b>Viewed Product</b> · 1 email + 1 SMS in one flow · from Nishorama &lt;support@nishorama.com&gt; · previews use a real recent event (Kia Corset Kurti Top), personal details removed.</p>
+<p class="note">Triple Pixel copy <b>GR_BFCM_Earlyaccess_Browse_TriplePixel</b>: same emails and SMS, starts 15 minutes later, and skips anyone the main flow already emailed.</p>
+<details class="logic"><summary>Flow logic: trigger, filters and waits</summary><div class="charts"><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 3 days</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-RbbK5B-125079487"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Browse_B1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>4 hours</div><a class="fc-step fc-email" href="#e-RbbK5B-125079489"><span class="lbl">SMS</span>GR_BFCM_Earlyaccess_Browse_SMS1</a><div class="fc-step fc-end">Exit</div></div><div class="chart"><div class="fc-step fc-trigger"><span class="lbl">Trigger</span><b>Viewed Product - Triple Pixel</b></div><div class="fc-step fc-filter"><span class="lbl">Flow filters · all must be true</span><div class="sub">Has not done <b>Placed Order</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started</b> since starting this flow</div><div class="sub">Has not been in this flow in the last 3 days</div><div class="sub">Has not done <b>Received Email</b> from <b>GR_BFCM_Earlyaccess_Browse</b> since starting this flow</div><div class="sub">Has not done <b>Added to Cart - Triple Pixel</b> since starting this flow</div><div class="sub">Has not done <b>Checkout Started - Triple Pixel</b> since starting this flow</div><div class="sub">Has not done <b>Viewed Product</b> since starting this flow</div></div><div class="fc-step fc-wait"><span class="lbl">Wait</span>15 minutes</div><div class="fc-step fc-wait"><span class="lbl">Wait</span>2 hours</div><a class="fc-step fc-email" href="#e-V9aMF2-125079501"><span class="lbl">Email</span>GR_BFCM_Earlyaccess_Browse_B1</a><div class="fc-step fc-wait"><span class="lbl">Wait</span>4 hours</div><a class="fc-step fc-email" href="#e-V9aMF2-125079503"><span class="lbl">SMS</span>GR_BFCM_Earlyaccess_Browse_SMS1</a><div class="fc-step fc-end">Exit</div></div></div></details></div></section>
+<section class="notes"><div class="eyebrow">Notes</div><ul>
+<li><b>Sample data.</b> Each flow is rendered with one real, recent trigger event. Names, emails, addresses and checkout links are stripped.</li>
+<li><b>Cart block.</b> Shows up to three items from the abandoned checkout. Prices show in the shopper's checkout currency.</li>
+<li><b>Browse block.</b> Shows the product viewed, with the sale price and the original price struck through when the product is on sale.</li>
+<li><b>Status.</b> All four flows are in draft. The regular checkout and browse flows keep running until these go live.</li>
+</ul></section></main>
+<footer class="foot"><div class="wrap footin"><div><div class="eyebrow g">Sources</div><p>Klaviyo API (flow definitions, templates, events). Pulled 14 Nov 2026.</p></div><span class="mark inv"><span class="sq"></span><span class="wm">Grovae</span></span></div></footer>
+<script>document.querySelectorAll('.viewbar .tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.viewbar .tabs button').forEach(x=>x.classList.toggle('on',x===b));document.body.classList.toggle('desk',b.dataset.v==='d');document.querySelectorAll('.mail img').forEach(i=>i.src=i.dataset[b.dataset.v]);});</script>
+</body></html>

@@ -105,6 +105,38 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
   .ask .a div:last-child{text-align:left}
   .sec h2{font-size:22px}
 }
+
+.hero{padding:44px 0 24px}
+.gantt{display:grid;grid-template-columns:84px repeat(18,1fr);border:1px solid var(--border);margin-top:16px;background:var(--surface);align-items:stretch}
+.g-lab{padding:0 16px;display:flex;align-items:center;font-size:15px;border-right:1px solid var(--border)}
+.g-lab.h,.g-mo,.g-d{border-bottom:1px solid var(--border)}
+.g-lab b{font-weight:600;letter-spacing:-.01em}
+.g-mo{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);padding:8px 10px}
+.g-mo+.g-mo{border-left:1px solid var(--border)}
+.g-d{text-align:center;padding:7px 0;font-family:var(--mono);font-size:10px;color:var(--ink-3);line-height:1.5}
+.g-d b{display:block;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-1)}
+.g-d.we{background:var(--bg)}
+.g-d+.g-d{border-left:1px solid var(--border)}
+.blk{margin:10px 0;padding:11px 14px;border-left:3px solid var(--surface);min-height:64px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.blk b{font-size:15px;font-weight:600;letter-spacing:-.02em;line-height:1.2;white-space:nowrap}
+.blk span{font-family:var(--mono);font-size:11px;margin-top:4px;white-space:nowrap;opacity:.8}
+.p0{background:var(--sunken);padding:11px 4px;text-align:center}
+.p0 b{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.04em}
+.p1{background:#D5E2DE}.p2{background:var(--green);color:#fff}.p3{background:#A8C4BC}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);background:var(--surface)}
+.cards>div{padding:22px 22px 20px;display:flex;flex-direction:column}
+.cards>div+div{border-left:1px solid var(--border)}
+.cards .hl{background:var(--tint)}
+.cards h3{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-top:8px}
+.cards p{color:var(--ink-2);font-size:14.5px;margin:8px 0 16px}
+.cards .n{margin-top:auto;font-family:var(--mono);font-size:12px;color:var(--ink-1);padding-top:12px;border-top:1px solid var(--border)}
+details.all{margin-top:12px}
+details.all summary{cursor:pointer;font-size:14px;font-weight:500;color:var(--green);padding:6px 0;list-style:none}
+details.all summary::-webkit-details-marker{display:none}
+details.all summary:after{content:" \2193"}
+details.all[open] summary:after{content:" \2191"}
+details.all .cal{margin-top:10px}
+@media (max-width:760px){.gantt{display:none}.strip{margin-bottom:0}.cards{grid-template-columns:1fr}.cards>div+div{border-left:0;border-top:1px solid var(--border)}}
 </style>
 </head>
 <body>
@@ -112,9 +144,9 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
 
 <div class="wrap">
   <div class="hero">
-    <div class="label">Send plan · Global and India · 18 Nov 2026</div>
-    <h1>Black Friday plan.<br>Both stores, day by day.</h1>
-    <p>Global runs Mon 23 Nov to Mon 7 Dec. India runs Fri 20 Nov to Tue 1 Dec. Copy is written for every send and designs are in progress.</p>
+    <div class="label">Send plan · Global and India · 19 Nov 2026</div>
+    <h1>Black Friday plan.</h1>
+    <p>Three phases in each store. Copy is written for every send and designs are in progress.</p>
   </div>
 
   <div class="strip">
@@ -124,34 +156,28 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
     <div><div class="v">Fri 20 Nov</div><span class="label">First send · India guest list</span></div>
   </div>
 
-  <div class="sec"><div class="label">01 · The offer</div><h2>What we're selling, side by side.</h2></div>
-  <div class="two">
-    <div>
-      <div class="h"><b>Global (US)</b><span class="label">Tue 24 Nov to Mon 7 Dec</span></div>
-      <div class="kv">
-        <div><span class="label">Sale</span><div class="big">Up to 60% off sitewide</div></div>
-        <div><span class="label">Who hears first</span>The email list, Mon 23 Nov at 6 PM ET. Prices drop at midnight.</div>
-        <div><span class="label">Spend more, save more · 24 to 30 Nov</span><ul><li><span>$99</span><span>Extra 15% off</span></li><li><span>$139</span><span>Extra 20% off</span></li><li><span>$169</span><span>Extra 25% off</span></li></ul></div>
-        <div><span class="label">Extra week · 1 to 7 Dec</span>Same thresholds, extra 10%, 15%, 20%. Free US shipping from $59 throughout.</div>
-        <div><span class="label">List-only deal, one a day</span><ul><li><span>Fri</span><span>Free pants over $120</span></li><li><span>Sat</span><span>$10 off over $75</span></li><li><span>Sun</span><span>Mystery gift over $120</span></li><li><span>Mon</span><span>$20 off over $150</span></li></ul></div>
-        <div><span class="label">Back to full price</span>Tue 8 Dec</div>
-      </div>
-    </div>
-    <div>
-      <div class="h"><b>India</b><span class="label">Fri 27 to Mon 30 Nov</span></div>
-      <div class="kv">
-        <div><span class="label">Sale</span><div class="big">Up to 50% off sitewide</div></div>
-        <div><span class="label">Who gets in first</span>The guest list and past customers, Thu 26 Nov at 11 PM IST. Everyone else at midnight.</div>
-        <div><span class="label">Spend more, get more · prepaid orders</span><ul><li><span>₹2,999</span><span>Free pants</span></li><li><span>₹3,999</span><span>Free pants + ₹450 off</span></li><li><span>₹5,999</span><span>Free pants + ₹600 off</span></li></ul></div>
-        <div><span class="label">Guest list · 20 to 26 Nov</span>A sign-up page for early access. It builds the WhatsApp and email list before the sale opens.</div>
-        <div><span class="label">List-only deal, one a day</span><ul><li><span>Fri</span><span>Free pants from ₹1,999</span></li><li><span>Sat</span><span>₹200 off over ₹1,999</span></li><li><span>Sun</span><span>₹300 off + free pants over ₹2,999</span></li><li><span>Mon</span><span>₹500 off + free pants over ₹3,499</span></li></ul></div>
-        <div><span class="label">Back to full price</span>Tue 1 Dec</div>
-      </div>
-    </div>
+  <div class="gantt">
+    <div class="g-lab h"></div><div class="g-mo" style="grid-column:2/13">November</div><div class="g-mo" style="grid-column:13/20">December</div>
+    <div class="g-lab h"></div><div class="g-d">F<b>20</b></div><div class="g-d we">S<b>21</b></div><div class="g-d we">S<b>22</b></div><div class="g-d">M<b>23</b></div><div class="g-d">T<b>24</b></div><div class="g-d">W<b>25</b></div><div class="g-d">T<b>26</b></div><div class="g-d">F<b>27</b></div><div class="g-d we">S<b>28</b></div><div class="g-d we">S<b>29</b></div><div class="g-d">M<b>30</b></div><div class="g-d">T<b>1</b></div><div class="g-d">W<b>2</b></div><div class="g-d">T<b>3</b></div><div class="g-d">F<b>4</b></div><div class="g-d we">S<b>5</b></div><div class="g-d we">S<b>6</b></div><div class="g-d">M<b>7</b></div>
+    <div class="g-lab"><b>Global</b></div>
+    <div class="g-gap" style="grid-column:2/5"></div>
+    <div class="blk p1" style="grid-column:5/9"><b>Early prices</b><span>3 emails · 1 SMS</span></div>
+    <div class="blk p2" style="grid-column:9/13"><b>Four deal days</b><span>4 emails · 6 SMS</span></div>
+    <div class="blk p3" style="grid-column:13/20"><b>One extra week</b><span>4 emails · 2 SMS</span></div>
+    <div class="g-lab"><b>India</b></div>
+    <div class="blk p1" style="grid-column:2/9"><b>Guest list, then early access</b><span>3 emails · 3 WhatsApps</span></div>
+    <div class="blk p2" style="grid-column:9/13"><b>Four deal days</b><span>6 emails · 10 WhatsApps</span></div>
+    <div class="blk p0" style="grid-column:13/14"><b>Thanks</b></div>
+    <div class="g-gap" style="grid-column:14/20"></div>
   </div>
-  <p class="note">The daily deals go only to our list, by email, SMS and WhatsApp. They don't show on the site. Each one ends at 11:59 PM that day.</p>
 
-  <div class="sec"><div class="label">02 · Global · 11 emails, 9 SMS</div><h2>Three phases over two weeks.</h2><p>Times are US Eastern.</p></div>
+  <div class="sec"><div class="label">Global · US Eastern time</div><h2>Up to 60% off, Tue 24 Nov to Mon 7 Dec.</h2></div>
+  <div class="cards">
+    <div><div class="label">Mon 23 to Thu 26 Nov</div><h3>Early prices</h3><p>The list gets a note from Ramnek on Monday evening. Prices drop at midnight. Thursday's email explains the daily deals.</p><div class="n">3 emails · 1 SMS</div></div>
+    <div class="hl"><div class="label">Fri 27 to Mon 30 Nov</div><h3>Four deal days</h3><p>One list-only deal a day: free pants, $10 off, mystery gift, $20 off. Email at 9 AM, "ends tonight" SMS at 7:30 PM.</p><div class="n">4 emails · 6 SMS</div></div>
+    <div><div class="label">Tue 1 to Mon 7 Dec</div><h3>One extra week</h3><p>Thank-you note from Ramnek, with the sale staying one more week. Then bestsellers, a gift list and the last day.</p><div class="n">4 emails · 2 SMS</div></div>
+  </div>
+  <details class="all"><summary>Every Global send, day by day</summary>
   <div class="cal">
     <div class="r hd"><div class="label">Day</div><div class="label">Email</div><div class="label">SMS</div></div>
     <div class="ph"><span class="label">Early prices · 24 to 26 Nov</span></div>
@@ -169,13 +195,21 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
     <div class="r"><div class="d">Sat 5 Dec</div><div data-l="Email"><p><b>9 AM</b>The gift list. Order by Mon 7 Dec for Christmas</p></div><div class="e"></div></div>
     <div class="r"><div class="d">Mon 7 Dec</div><div data-l="Email"><p><b>9 AM</b>Last day</p></div><div data-l="SMS"><p><b>6 PM</b>Last few hours <span class="to">· two versions</span></p></div></div>
   </div>
+
   <ul class="rules">
     <li>Only three SMS go to all subscribers in two weeks: Tue 24, Fri 27 and Mon 30 Nov.</li>
     <li>The 7:30 PM SMS goes only to people who started a checkout or signed up that day.</li>
     <li>The last-day SMS goes to people who signed up or left a checkout in the last 30 days.</li>
   </ul>
+  </details>
 
-  <div class="sec"><div class="label">03 · India · 10 emails, 13 WhatsApps</div><h2>Build the list, open early, then four deal days.</h2><p>Times are IST.</p></div>
+  <div class="sec"><div class="label">India · IST</div><h2>Up to 50% off, Fri 27 to Mon 30 Nov.</h2></div>
+  <div class="cards">
+    <div><div class="label">Fri 20 to Thu 26 Nov</div><h3>Guest list, then early access</h3><p>People sign up to shop an hour early. That grows the WhatsApp and email list before the sale. The list gets in on Thu 26 Nov at 11 PM.</p><div class="n">3 emails · 3 WhatsApps</div></div>
+    <div class="hl"><div class="label">Fri 27 to Mon 30 Nov</div><h3>Four deal days</h3><p>One list-only deal a day: free pants from ₹1,999, ₹200 off, ₹300 off + pants, ₹500 off + pants. Email at 10 AM, WhatsApp at noon, a reminder at night.</p><div class="n">6 emails · 10 WhatsApps</div></div>
+    <div><div class="label">Tue 1 Dec</div><h3>Thank you</h3><p>A plain note from Ramnek. No offer. Full price is back.</p><div class="n">1 email</div></div>
+  </div>
+  <details class="all"><summary>Every India send, day by day</summary>
   <div class="cal">
     <div class="r hd"><div class="label">Day</div><div class="label">Email</div><div class="label">WhatsApp</div></div>
     <div class="ph"><span class="label">Guest list · 20 to 26 Nov</span></div>
@@ -190,45 +224,25 @@ footer{padding:20px 0 36px;font-family:var(--mono);font-size:10px;letter-spacing
     <div class="r"><div class="d">Mon 30 Nov</div><div data-l="Email"><p><b>10 AM</b>Last day + Deal 4: ₹500 off + free pants <code>LAST500</code></p><p><b>6 PM</b>Note from Ramnek: ends tonight <span class="to">· plain text</span></p></div><div data-l="WhatsApp"><p><b>12 PM</b>Last day + Deal 4</p><p><b>7:30 PM</b>Ends tonight</p><p><b>11 PM</b>1 hour left</p></div></div>
     <div class="r"><div class="d">Tue 1 Dec</div><div data-l="Email"><p><b>11 AM</b>Note from Ramnek: thank you, no offer <span class="to">· plain text</span></p></div><div class="e"></div></div>
   </div>
+
   <ul class="rules">
     <li>Emails go to engaged subscribers only, to keep open rates up.</li>
     <li>The morning and noon WhatsApps go to people who read or clicked one in the last 30 days.</li>
     <li>The "ends tonight" and "1 hour left" WhatsApps go only to people who left a cart or checkout or signed up that day.</li>
     <li>App push: 7 pushes on the same days (early access, each deal, last day).</li>
   </ul>
-
-  <div class="sec"><div class="label">04 · On the site</div><h2>Pop-ups and flow emails switch with the offer.</h2><p>The pop-up and the welcome, browse and checkout emails carry the same offer as the campaigns.</p></div>
-  <div class="tbl">
-    <div class="r hd"><div class="label">Date</div><div class="label">Global</div><div class="label">India</div></div>
-    <div class="r"><div class="d">Fri 20 Nov</div><div class="e"></div><div data-l="India">Guest list sign-up page goes live</div></div>
-    <div class="r"><div class="d">Tue 24 Nov</div><div data-l="Global">Pop-up and flow emails switch to up to 60% off and the new tiers</div><div class="e"></div></div>
-    <div class="r"><div class="d">Fri 27 Nov</div><div class="e"></div><div data-l="India">Sale pop-up and sale flow emails replace the regular ones</div></div>
-    <div class="r"><div class="d">Tue 1 Dec</div><div data-l="Global">Pop-up and flow emails switch to the extra-week numbers</div><div data-l="India">Regular pop-up and flow emails come back</div></div>
-    <div class="r"><div class="d">Tue 8 Dec</div><div data-l="Global">Regular pop-up and flow emails come back</div><div class="e"></div></div>
-  </div>
-
-  <div class="sec"><div class="label">05 · Where it stands</div><h2>Written. In design. Build starts as designs land.</h2></div>
-  <div class="tbl s3">
-    <div class="r hd"><div class="label">Piece</div><div class="label">Status</div><div class="label">Next date</div></div>
-    <div class="r"><div class="d">Copy</div><div data-l="Status">Written for all 21 emails, 9 SMS and 13 WhatsApps</div><div data-l="Next date">Done</div></div>
-    <div class="r"><div class="d">Design</div><div data-l="Status">Briefed to the designer</div><div data-l="Next date">India guest list page and first two WhatsApp banners: Thu 19 Nov. Global first batch: Mon 23 Nov. India banners: Tue 24 Nov. India emails: Thu 26 Nov</div></div>
-    <div class="r"><div class="d">WhatsApp templates</div><div data-l="Status">Need Meta approval</div><div data-l="Next date">First one submitted Thu 19 Nov, the rest by Tue 24 Nov</div></div>
-    <div class="r"><div class="d">Build</div><div data-l="Status">Starts as designs land. Nothing is scheduled yet</div><div data-l="Next date">India guest list live Fri 20 Nov. Global ready Mon 23 Nov</div></div>
-  </div>
+  </details>
 </div>
 
 <div class="ask"><div class="wrap">
-  <div class="label">06 · From Nishorama</div>
-  <h2>What we need from you, and by when.</h2>
-  <div class="a"><div>OK on the six plain-text emails that go out in Ramnek's name (2 Global, 4 India)</div><div>Mon 23 Nov</div></div>
-  <div class="a"><div>Global: up to 60% off and the new tiers live on the site</div><div>Tue 24 Nov · 12 AM ET</div></div>
-  <div class="a"><div>India: sale open for the guest list</div><div>Thu 26 Nov · 11 PM IST</div></div>
-  <div class="a"><div>Both stores: the four daily codes live</div><div>Fri 27 Nov</div></div>
-  <div class="a"><div>India: back to full price</div><div>Tue 1 Dec · 12 AM IST</div></div>
-  <div class="a"><div>Global: tiers step down to 10%, 15%, 20%</div><div>Tue 1 Dec · 12 AM ET</div></div>
-  <div class="a"><div>Global: back to full price</div><div>Tue 8 Dec · 12 AM ET</div></div>
+  <div class="label">From Nishorama</div>
+  <h2>Four things we need from you.</h2>
+  <div class="a"><div>OK on the six plain-text notes that go out in Ramnek's name</div><div>Mon 23 Nov</div></div>
+  <div class="a"><div>Global: sale prices and tiers live. Tiers step down Tue 1 Dec, full price Tue 8 Dec</div><div>Tue 24 Nov · 12 AM ET</div></div>
+  <div class="a"><div>India: sale open for the guest list. Full price back Tue 1 Dec</div><div>Thu 26 Nov · 11 PM IST</div></div>
+  <div class="a"><div>Both stores: the four daily deal codes live</div><div>Fri 27 Nov</div></div>
 </div></div>
 
-<div class="wrap"><footer>Grovae · Prepared for Nishorama · 18 Nov 2026</footer></div>
+<div class="wrap"><footer>Grovae · Prepared for Nishorama · 19 Nov 2026</footer></div>
 </body>
 </html>
